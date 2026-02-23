@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> - Tipnmog Blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:url" content="https://example.org/posts/ssh/">
+  <meta property="og:site_name" content="Tipnmog Blog">
+  <meta property="og:title" content="Tipnmog Blog">
+  <meta property="og:description" content="Generate an SSH Key With OpenSSH, an SSH key is created using ssh-keygen. In the simplest form, just run ssh-keygen and answer the questions. The following example illustates this.
+# ssh-keygen Generating public/private rsa key pair. Enter file in which to save the key (/home/ylo/.ssh/id_rsa): mykey Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in mykey. Your public key has been saved in mykey.pub. ">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Tipnmog Blog" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Tipnmog Blog</div>
+					<div class="logo__tagline">Collection of Notes</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title"></h1>
+			
+		</header>
+		<div class="content post__content clearfix">
+			<h2 id="generate-an-ssh-key">Generate an SSH Key</h2>
+<p>With OpenSSH, an SSH key is created using ssh-keygen. In the simplest form, just run ssh-keygen and answer the questions. The following example illustates this.</p>
+<pre tabindex="0"><code class="language-text-x-sh" data-lang="text-x-sh"># ssh-keygen 
+</code></pre><blockquote>
+<p>Generating public/private rsa key pair. Enter file in which to save the key (/home/ylo/.ssh/id_rsa): mykey </p>
+<p>Enter passphrase (empty for no passphrase):  </p>
+<p>Enter same passphrase again:  </p>
+<p>Your identification has been saved in mykey. Your public key has been saved in mykey.pub. </p>
+</blockquote>
+<p>Creating a key pair (public key and private key) only takes a minute. The key files are usually stored in the ~/.ssh directory.</p>
+<h3 id="copy-the-key-to-a-server">Copy the key to a server</h3>
+<p>Once an SSH key has been created, the ssh-copy-id command can be used to install it as an authorized key on the server. Once the key has been authorized for SSH, it grants access to the server without a password.</p>
+<p>Use a command like the following to copy SSH key:</p>
+<pre tabindex="0"><code>ssh-copy-id -i ~/.ssh/mykey user@host
+</code></pre><p>This logs into the server host, and copies keys to the server, and configures them to grant access by adding them to the authorized_keys file. The copying may ask for a password or other authentication for the server.</p>
+<p>Only the public key is copied to the server. The private key should never be copied to another machine.</p>
+<p>Test the new key<br>
+Once the key has been copied, it is best to test it:</p>
+<pre tabindex="0"><code>ssh -i ~/.ssh/mykey user@host
+</code></pre><p>The login should now complete without asking for a password. Note, however, that the command might ask for the passphrase you specified for the key.</p>
+<h2 id="ssh-keygen-options">ssh-keygen options</h2>
+<p>The ssh-keygen command-line tool offers various options for generating, managing, and converting SSH keys. It supports generating keys for different algorithms like RSA, DSA, ECDSA, and Ed25519. You can specify the key type with the -t option, the key length with -b, and the file name with -f. Other useful options include changing the passphrase (-p), silent mode (-q), and verbose mode (-v). </p>
+<p><strong>Key Options and Their Uses:</strong> </p>
+<ul>
+<li>-t key_type: Specifies the type of key to generate (e.g., rsa, dsa, ecdsa, ed25519).</li>
+<li>-b bits: Sets the number of bits for the key (e.g., 2048, 4096).</li>
+<li>-f file: Specifies the filename for storing the key.</li>
+<li>-N new_passphrase: Sets a new passphrase for the private key.</li>
+<li>-P passphrase: Provides the old passphrase when reading a key.</li>
+<li>-c comment: Adds a comment to the public key (e.g., user@host).</li>
+<li>-q: Silences ssh-keygen output.</li>
+<li>-v: Enables verbose mode, displaying more information.</li>
+<li>-l: Prints the fingerprint of the public key.</li>
+<li>-B: Shows the &ldquo;bubble babble&rdquo; fingerprint of a keyfile.</li>
+<li>-F: Searches for a specified hostname in a known_hosts file.</li>
+<li>-R: Removes all keys belonging to a hostname from a known_hosts file.</li>
+<li>-i key: Input a file for use with ssh-keygen.</li>
+<li>-e private_key: Exports a private key to a different format.</li>
+<li>-X cert: Creates or manages a certificate for a key.</li>
+<li>key_name1 key_name2 &hellip;: Specifies the names of the keys to be used. </li>
+</ul>
+<p>Example:</p>
+<p> </p>
+<p>To generate a 2048-bit RSA key pair and save it in a file named my_key, you could use:</p>
+<p> </p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>text-x-sh&lt;br&gt;ssh-keygen -t ed25519 -f id_ed25519_npw_xps_wsl&lt;br&gt;</code></td>
+      </tr>
+  </tbody>
+</table>
+
+		</div>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/posts/arch-linux-on-t480/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Manual Install of Arch Linux on Lenovo T480</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<input class="widget-search__field" type="search" placeholder="Search…" value="" name="q" aria-label="Search…">
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://example.org/">
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/git-notes/">Git / GitHub Notes</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/godaddy-hosting-to-vps/">Website from GoDaddy Hosting to Digital Ocean VPS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/arch-linux-on-t480/">Manual Install of Arch Linux on Lenovo T480</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/ssh/"></a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/arch_linux/" title="Arch_Linux">Arch_Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/github/" title="Github">Github</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/laptop/" title="Laptop">Laptop</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ubuntuserver/" title="UbuntuServer">UbuntuServer</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/website/" title="Website">Website</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2026 Tipnmog Blog.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

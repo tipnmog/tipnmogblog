@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.156.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.156.0">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Tipnmog Blog</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Jim&#39;s blog about everything">
-		<meta property="og:url" content="http://localhost:1313/">
+		<meta property="og:url" content="https://example.org/">
   <meta property="og:site_name" content="Tipnmog Blog">
   <meta property="og:title" content="Tipnmog Blog">
   <meta property="og:description" content="Jim&#39;s blog about everything">
@@ -24,6 +24,7 @@
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Tipnmog Blog">
 
 	<link rel="shortcut icon" href="/favicon.ico">
+		
 		
 </head>
 <body class="body">
@@ -110,6 +111,26 @@ git push -u origin main
 		<p><strong>Btrfs</strong> (B-tree file system) is a modern, copy-on-write (CoW) filesystem for Linux designed for high scalability, fault tolerance, and easy administration. It supports advanced features like snapshots, data compression, and built-in RAID. It is widely used in Linux distributions (e.g., Fedora) and enterprise NAS systems for data integrity.</p>
 <p><strong>zram</strong>: Zram (formerly compcache) is a Linux kernel module that creates a compressed, RAM-based block device, acting as a faster alternative to traditional swap. By compressing data in memory (typically at a 3:1 ratio), it allows systems to store more data in RAM, significantly reducing disk I/O and enhancing responsiveness on low-memory devices.</p>
 	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/ssh/" rel="bookmark">
+			
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="generate-an-ssh-key">Generate an SSH Key</h2>
+<p>With OpenSSH, an SSH key is created using ssh-keygen. In the simplest form, just run ssh-keygen and answer the questions. The following example illustates this.</p>
+<pre tabindex="0"><code class="language-text-x-sh" data-lang="text-x-sh"># ssh-keygen 
+</code></pre><blockquote>
+<p>Generating public/private rsa key pair. Enter file in which to save the key (/home/ylo/.ssh/id_rsa): mykey </p>
+<p>Enter passphrase (empty for no passphrase):  </p>
+<p>Enter same passphrase again:  </p>
+<p>Your identification has been saved in mykey. Your public key has been saved in mykey.pub. </p>
+	</div>
 </article>
 </main>
 
@@ -119,7 +140,7 @@ git push -u origin main
 	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
 		<input class="widget-search__field" type="search" placeholder="Search…" value="" name="q" aria-label="Search…">
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="http://localhost:1313/">
+		<input type="hidden" name="sitesearch" value="https://example.org/">
 	</form>
 </div>
 <div class="widget-recent widget">
@@ -129,7 +150,20 @@ git push -u origin main
 			<li class="widget__item"><a class="widget__link" href="/posts/git-notes/">Git / GitHub Notes</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/godaddy-hosting-to-vps/">Website from GoDaddy Hosting to Digital Ocean VPS</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/arch-linux-on-t480/">Manual Install of Arch Linux on Lenovo T480</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/ssh/"></a></li>
 		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/arch_linux/" title="Arch_Linux">Arch_Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/github/" title="Github">Github</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/laptop/" title="Laptop">Laptop</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ubuntuserver/" title="UbuntuServer">UbuntuServer</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/website/" title="Website">Website</a>
 	</div>
 </div>
 </aside>

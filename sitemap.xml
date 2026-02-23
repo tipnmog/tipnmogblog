@@ -2,23 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/git-notes/</loc>
+    <loc>https://example.org/tags/git/</loc>
     <lastmod>2026-02-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://example.org/posts/git-notes/</loc>
     <lastmod>2026-02-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://example.org/tags/github/</loc>
     <lastmod>2026-02-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/godaddy-hosting-to-vps/</loc>
+    <loc>https://example.org/posts/</loc>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/tags/</loc>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/</loc>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/tags/ubuntuserver/</loc>
     <lastmod>2026-02-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/arch-linux-on-t480/</loc>
+    <loc>https://example.org/tags/website/</loc>
+    <lastmod>2026-02-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/posts/godaddy-hosting-to-vps/</loc>
+    <lastmod>2026-02-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/tags/arch_linux/</loc>
     <lastmod>2026-02-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://example.org/tags/laptop/</loc>
+    <lastmod>2026-02-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://example.org/tags/linux/</loc>
+    <lastmod>2026-02-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/posts/arch-linux-on-t480/</loc>
+    <lastmod>2026-02-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/posts/ssh/</loc>
+  </url><url>
+    <loc>https://example.org/categories/</loc>
   </url>
 </urlset>

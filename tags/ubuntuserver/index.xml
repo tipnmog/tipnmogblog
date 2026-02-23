@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Website on Tipnmog Blog</title>
-    <link>https://example.org/tags/website/</link>
-    <description>Recent content in Website on Tipnmog Blog</description>
+    <title>UbuntuServer on Tipnmog Blog</title>
+    <link>https://example.org/tags/ubuntuserver/</link>
+    <description>Recent content in UbuntuServer on Tipnmog Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/website/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/ubuntuserver/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Website from GoDaddy Hosting to Digital Ocean VPS</title>
       <link>https://example.org/posts/godaddy-hosting-to-vps/</link>
