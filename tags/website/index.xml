@@ -6,12 +6,12 @@
     <description>Recent content in Website on Tipnmog Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://example.org/tags/website/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Website from GoDaddy Hosting to Digital Ocean VPS</title>
       <link>https://example.org/posts/godaddy-hosting-to-vps/</link>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://example.org/posts/godaddy-hosting-to-vps/</guid>
       <description>&lt;p&gt;This will be a documentation of moving a website from GoDaddy shared hosting to Digital Ocean droplet.  Any other cloud hosting service should work with variation in the server creation on the cloud system.  For example other services such as Linode etc.  Note that Digital Ocean calls their virtual machines droplets, other providers will have a different name.&lt;/p&gt;&#xA;&lt;p&gt;While documenting this process I moved the domain 09flhrc.com from GoDaddy shared hosting to a Digital Ocean Droplet.  The IP address assigned to the droplet is 143.110.204.149&lt;/p&gt;</description>
     </item>

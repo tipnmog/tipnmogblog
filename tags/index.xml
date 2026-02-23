@@ -9,27 +9,6 @@
     <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Git</title>
-      <link>https://example.org/tags/git/</link>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/git/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Github</title>
-      <link>https://example.org/tags/github/</link>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/github/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>https://example.org/tags/linux/</link>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/linux/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>UbuntuServer</title>
       <link>https://example.org/tags/ubuntuserver/</link>
       <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
@@ -39,8 +18,22 @@
     <item>
       <title>Website</title>
       <link>https://example.org/tags/website/</link>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://example.org/tags/website/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://example.org/tags/git/</link>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github</title>
+      <link>https://example.org/tags/github/</link>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/github/</guid>
       <description></description>
     </item>
     <item>
@@ -55,6 +48,13 @@
       <link>https://example.org/tags/laptop/</link>
       <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://example.org/tags/laptop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://example.org/tags/linux/</link>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/linux/</guid>
       <description></description>
     </item>
     <item>
