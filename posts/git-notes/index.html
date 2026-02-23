@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Git / GitHub Notes - Tipnmog Blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:url" content="http://localhost:1313/posts/git-notes/">
+  <meta property="og:site_name" content="Tipnmog Blog">
+  <meta property="og:title" content="Git / GitHub Notes">
+  <meta property="og:description" content="see git config
+git config --list initialize
+git init Check status and see what branch you are on
+git status Rename the branch using the move option (-m):
+git branch -m &lt;new-name&gt; add files to staging
+git add . you can also add just a file
+git add file.txt push local commit to remote (Github)
+git remote -v git remote add origin https://github.com/tipnmog/tipnmogblog.git git branch -M main git push -u origin main Steps to Remove the Origin Remote">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-22T00:00:00+00:00">
+    <meta property="article:tag" content="Git">
+    <meta property="article:tag" content="Github">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Tipnmog Blog" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Tipnmog Blog</div>
+					<div class="logo__tagline">Collection of Notes</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Git / GitHub Notes</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2026-02-22T00:00:00Z">February 22, 2026</time></div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>see git config</p>
+<pre tabindex="0"><code>git config --list
+</code></pre><p>initialize</p>
+<pre tabindex="0"><code>git init
+</code></pre><p>Check status and see what branch you are on</p>
+<pre tabindex="0"><code>git status
+</code></pre><p>Rename the branch using the move option (<code>-m</code>):</p>
+<pre tabindex="0"><code>git branch -m &lt;new-name&gt;
+</code></pre><p>add files to staging</p>
+<pre tabindex="0"><code>git add .
+</code></pre><p>you can also add just a file</p>
+<pre tabindex="0"><code>git add file.txt
+</code></pre><p>push local commit to remote (Github)</p>
+<pre tabindex="0"><code>git remote -v
+</code></pre><pre tabindex="0"><code>git remote add origin https://github.com/tipnmog/tipnmogblog.git
+git branch -M main
+git push -u origin main
+</code></pre><p>Steps to Remove the Origin Remote</p>
+<ol>
+<li>
+<p><strong>Open your terminal or command prompt</strong> and navigate to your local Git repository&rsquo;s directory.</p>
+</li>
+<li>
+<p><strong>Verify the current remotes</strong> configured for your repository by running:</p>
+<p>bash</p>
+<pre tabindex="0"><code>git remote -v
+</code></pre><p>This command lists the names and URLs for the fetch and push operations of your remotes, e.g., <code>origin https://github.com (fetch)</code>.</p>
+</li>
+<li>
+<p><strong>Remove the <code>origin</code> remote</strong> by using one of the following commands:</p>
+<ul>
+<li>
+<p>bash</p>
+<pre tabindex="0"><code>git remote remove origin
+</code></pre></li>
+<li>
+<p>bash</p>
+<pre tabindex="0"><code>git remote rm origin
+</code></pre></li>
+</ul>
+<p>The <code>remove</code> form is generally preferred, but <code>rm</code> is a valid alias.</p>
+</li>
+<li>
+<p><strong>Verify the removal</strong> by running <code>git remote -v</code> again. The <code>origin</code> remote should no longer appear in the list. </p>
+</li>
+</ol>
+<p>After Removal</p>
+<ul>
+<li>
+<p>If you need to connect your local repository to a <strong>different remote URL</strong>, you can add a new remote using the <code>git remote add</code> command:</p>
+<p>bash</p>
+<pre tabindex="0"><code>git remote add origin [new_url]
+</code></pre></li>
+<li>
+<p>Alternatively, you can <strong>change the existing remote URL</strong> without removing it first by using <code>git remote set-url</code>:</p>
+<p>bash</p>
+<pre tabindex="0"><code>git remote set-url origin [new_url]
+</code></pre></li>
+<li>
+<p>To <strong>delete a branch on the remote server</strong> (not the remote connection itself), you would use a different command:</p>
+<p>bash</p>
+<pre tabindex="0"><code>git push origin --delete [branch_name]
+</code></pre><p>Note that this is different from removing the remote configuration for &ldquo;origin&rdquo;</p>
+</li>
+</ul>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/git/" rel="tag">git</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/github/" rel="tag">github</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/posts/godaddy-hosting-to-vps/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Website from GoDaddy Hosting to Digital Ocean VPS</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<input class="widget-search__field" type="search" placeholder="Search…" value="" name="q" aria-label="Search…">
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://localhost:1313/">
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/git-notes/">Git / GitHub Notes</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/godaddy-hosting-to-vps/">Website from GoDaddy Hosting to Digital Ocean VPS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/arch-linux-on-t480/">Manual Install of Arch Linux on Lenovo T480</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/arch/" title="Arch">Arch</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/github/" title="Github">Github</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ubuntu-server/" title="Ubuntu Server">Ubuntu Server</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/website/" title="Website">Website</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2026 Tipnmog Blog.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

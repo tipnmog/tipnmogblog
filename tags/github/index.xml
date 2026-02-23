@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on Tipnmog Blog</title>
+    <link>http://localhost:1313/tags/github/</link>
+    <description>Recent content in Github on Tipnmog Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git / GitHub Notes</title>
+      <link>http://localhost:1313/posts/git-notes/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-notes/</guid>
+      <description>&lt;p&gt;see git config&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config --list&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;initialize&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git init&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Check status and see what branch you are on&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git status&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Rename the branch using the move option (&lt;code&gt;-m&lt;/code&gt;):&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git branch -m &amp;lt;new-name&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;add files to staging&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git add .&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;you can also add just a file&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git add file.txt&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;push local commit to remote (Github)&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git remote -v&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git remote add origin https://github.com/tipnmog/tipnmogblog.git&#xA;git branch -M main&#xA;git push -u origin main&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Steps to Remove the Origin Remote&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

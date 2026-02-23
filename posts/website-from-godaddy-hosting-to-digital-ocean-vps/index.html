@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Move Website From GoDaddy Shared Host to Digital Ocean VPS - Tipnmog Blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Tipnmog Blog" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Tipnmog Blog</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Move Website From GoDaddy Shared Host to Digital Ocean VPS</h1>
+			
+		</header>
+		<div class="content post__content clearfix">
+			<p>This will be a documentation of moving a website from GoDaddy shared hosting to Digital Ocean droplet.  Any other cloud hosting service should work with variation in the server creation on the cloud system.  For example other services such as Linode etc.  Note that Digital Ocean calls their virtual machines droplets, other providers will have a different name.</p>
+<p>While documenting this process I moved the domain 09flhrc.com from GoDaddy shared hosting to a Digital Ocean Droplet.  The IP address assigned to the droplet is 143.110.204.149</p>
+<h2 id="digital-ocean">Digital Ocean</h2>
+<p>AI description:  DigitalOcean is a developer-friendly cloud infrastructure-as-a-service (IaaS) provider offering simple, scalable, and cost-effective virtual machines (Droplets), managed databases, and Kubernetes. Designed for startups and SMBs, it simplifies deployment with a user-friendly interface, 1-click apps, and transparent pricing starting at $4–$5/month.</p>
+<p>Key details about DigitalOcean include: Core Product (Droplets): Linux-based virtual machines that can be deployed in seconds to run applications.</p>
+<p>Key Offerings: Compute: Droplets (shared or dedicated CPU). Storage: Block and Object storage.
+Database: Managed MySQL, PostgreSQL, Redis, and MongoDB.
+Networking: Firewalls, load balancers, and Virtual Private Cloud (VPC).
+Platform as a Service (PaaS): DigitalOcean App Platform for deploying code directly.
+Target Audience: Software developers, startups, and small-to-medium businesses (SMBs).</p>
+<p>Key Advantages: Known for simplicity, developer experience, and extensive documentation/tutorials.</p>
+<p>It is often chosen as an alternative to more complex cloud providers like AWS, Google Cloud, or Azure. Reddit Reddit</p>
+<h3 id="create-droplet-virtual-machine">Create Droplet (virtual machine)</h3>
+<ul>
+<li>log in or create an account on Digital Ocean</li>
+<li>Droplets are grouped under Projects - may have to create an inital project</li>
+<li>Create a droplet for this test I chose:
+  - 2 GB Memory
+  - 60 GB Disk
+  - SFO2
+  - Ubuntu 24.04 (LTS) x64  (you can choose from several distros.  For this I went with Ubuntu Long Term Support.</li>
+</ul>
+<blockquote>
+<p>Looks like plenty of options to upgrade the server, so perhaps go with the smallest option and upgrade if needed later.  With static webpage and no database needed we do not have to have too much power.</p>
+</blockquote>
+<p>When creating the droplet I chose to login with root and password.  An option was provided during setup to create a root password.  </p>
+<blockquote>
+<p>You can also choose to set up with ssh.  I chose the login with password in case ssh keys are lost.  When I set up the server, a user will be created who will log in with ssh keys.  I will disable root login with ssh, and leave the root password access for the Digital Ocean console as a option of all else fails.  If this turns out to be a bad ideal I can go back and change the console to ssh access only.</p>
+</blockquote>
+<p>A status dashboard will appear.  When the server is created, the status and IP address will be shown.  Copy the IP address.</p>
+<p>Now that we have an IP address we can check to see if they installed sshd while creating the server.  If not we can log into the Digital Ocean console to install ssh.</p>
+<p>Go to the terminal on your computer and ssh into the droplet:</p>
+<pre tabindex="0"><code>
+ssh root@143.110.204.149
+</code></pre><p>change server ip to the IP address of your server</p>
+<p>For me the ssh attempt worked so sshd was installed on my droplet.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/website/" rel="tag">Website</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/server/" rel="tag">Server</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2026 Tipnmog Blog.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

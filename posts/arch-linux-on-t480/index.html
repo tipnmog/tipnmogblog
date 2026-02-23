@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Manual Install of Arch Linux on Lenovo T480 - Tipnmog Blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:url" content="http://localhost:1313/posts/arch-linux-on-t480/">
+  <meta property="og:site_name" content="Tipnmog Blog">
+  <meta property="og:title" content="Manual Install of Arch Linux on Lenovo T480">
+  <meta property="og:description" content="Btrfs (B-tree file system) is a modern, copy-on-write (CoW) filesystem for Linux designed for high scalability, fault tolerance, and easy administration. It supports advanced features like snapshots, data compression, and built-in RAID. It is widely used in Linux distributions (e.g., Fedora) and enterprise NAS systems for data integrity.
+zram: Zram (formerly compcache) is a Linux kernel module that creates a compressed, RAM-based block device, acting as a faster alternative to traditional swap. By compressing data in memory (typically at a 3:1 ratio), it allows systems to store more data in RAM, significantly reducing disk I/O and enhancing responsiveness on low-memory devices.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-04T00:00:00+00:00">
+    <meta property="article:tag" content="Arch">
+    <meta property="article:tag" content="Linux">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Tipnmog Blog" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Tipnmog Blog</div>
+					<div class="logo__tagline">Collection of Notes</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Manual Install of Arch Linux on Lenovo T480</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2026-02-04T00:00:00Z">February 04, 2026</time></div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p><strong>Btrfs</strong> (B-tree file system) is a modern, copy-on-write (CoW) filesystem for Linux designed for high scalability, fault tolerance, and easy administration. It supports advanced features like snapshots, data compression, and built-in RAID. It is widely used in Linux distributions (e.g., Fedora) and enterprise NAS systems for data integrity.</p>
+<p><strong>zram</strong>: Zram (formerly compcache) is a Linux kernel module that creates a compressed, RAM-based block device, acting as a faster alternative to traditional swap. By compressing data in memory (typically at a 3:1 ratio), it allows systems to store more data in RAM, significantly reducing disk I/O and enhancing responsiveness on low-memory devices.</p>
+<p><strong>timeshift</strong>: Timeshift is a powerful open-source tool for Linux that creates incremental snapshots of the system files and settings, allowing users to restore their system to a previous state. It functions similarly to Windows System Restore or macOS Time Machine, protecting against broken updates or misconfigurations. It supports Btrfs for efficient, near-instant snapshots and rsync for all other file systems.</p>
+<p><strong>COSMIC</strong> :is a free and open-source desktop environment for Linux and other Unix-like operating systems. Originally a modified version of GNOME made for Pop! OS, it was later rebuilt from scratch as a standalone desktop environment using the Iced toolkit.</p>
+<h2 id="prep-the-t480">Prep the T480</h2>
+<p>In BIOS disable Secure boot</p>
+<h2 id="step-1-creating-a-bootable-arch-media-device"><strong>Step 1: Creating a bootable Arch media device</strong></h2>
+<p>I used Rufus to generate the bootable USB.<br>
+Partition scheme GPT.  Target system UEFI.<br>
+Insert the USB into the device you intend to install Arch linux on and boot into the USB.</p>
+<h3 id="bigger-font">bigger font</h3>
+<p><code>setfont ter-132b</code></p>
+<h2 id="step-2-setting-up-the-system-with-the-arch-iso">Step 2: Setting Up the System with the Arch ISO</h2>
+<p>[optional] if you would like to ssh into your target machine you will need to:
+Create a password for the ISO root user with the passwd command.</p>
+<p><code>passwd</code></p>
+<p>Ensure that ssh is running with systemctl status sshd (if it isn&rsquo;t start it with systemctl start ssdhd).</p>
+<p><code>systemctl status sshd</code></p>
+<p><code>systemctl start ssdhd</code></p>
+<p>Set the console keybooard layout (US by default):
+list available keymaps with localectl list-keymaps; and,</p>
+<p><code>localectl list-keymaps</code></p>
+<p>load the keymap with loadkeys <!-- raw HTML omitted -->.</p>
+<p><code>loadkeys us</code></p>
+<p>[optional] set the font size with setfont ter-132b.</p>
+<p><code>setfont ter-132b</code></p>
+<p>Verify the UEFI boot mode <code>cat /sys/firmware/efi/fw_platform_size</code>.</p>
+<p>This installation is written for a system with a 62-bit x64 UEFI. This isn&rsquo;t required, but if you are on a different boot mode, consult section 1.6 of the official guide.</p>
+<p><code>cat /sys/firmware/efi/fw_platform_size</code></p>
+<h3 id="network-connection">Network Connection</h3>
+<p>I used the iwctl utility for this purpose.</p>
+<p><code>iwctl</code></p>
+<p>note the device name of our WiFi adapter so we can refer to it later.  wlan0 in this example</p>
+<p>Scan available networks</p>
+<p><code>station wlan0 get-networks</code></p>
+<p>exit from iwctl</p>
+<p><code>exit</code></p>
+<p>connect to network</p>
+<p><code>iwctl --passphrase &lt;passphrase&gt; station &lt;interface&gt; connect NetworkName</code></p>
+<p>Confirm that your connection is active with ping -c 2 archlinux.org.</p>
+<p><code>ping -c 2 archlinux.org</code></p>
+<p>[optional] Obtain your IP Address with ip addr show, and now you&rsquo;re ready to ssh into your target machine.</p>
+<p><code>ip addr show</code></p>
+<p>You can now ssh from another computer.  Handy if you have a PC with bigger screen and keyboard.</p>
+<h3 id="set-the-timezone">Set the timezone:</h3>
+<p><code>timedatectl list-timezones</code></p>
+<p><code>timedatectl set-timezone America/Phoenix</code></p>
+<p><code>timedatectl set-ntp true</code></p>
+<h3 id="partition-your-disk">Partition your disk:</h3>
+<p>list your partitions with lsblk;</p>
+<p><code>lsblk</code></p>
+<p>delete the existing partitions on the target disk [WARNING: your data will be lost]</p>
+<p>create two partitions:</p>
+<p>!NOTE: The official Arch Linux installation guide suggests implementing a swap partition. You could also create a swap subvolume within BTRFS, however, snapshots will be disabled where a volume has an active swapfile. In my case, I have opted instead for zram which works by compressing data in RAM, thereby stretching your RAM further. zram is only active when your RAM is at or close to capacity.</p>
+<p>efi = 1G</p>
+<p>main = allocate all remaining space (or as otherwise fit for your specific case) noting that BTRFS doesn&rsquo;t require pre-defined partition sizes, but rather allocates dynamically through subvolumes which act in a similar fashion to partitions but don&rsquo;t require the physical division of the target disk.</p>
+<p><code>gdisk /dev/nvme0n1</code></p>
+<p>In gdisk utility list known partition types.  search for eft</p>
+<p><code>l</code>  - this is a lower case letter l</p>
+<p>efi</p>
+<p>will return ef00</p>
+<p>create a new empty GUID table using the command <code>o</code><br>
+create a new partition using <code>n</code><br>
+use the fist part of the sector as the default<br>
+last sector enter <code>+1G</code><br>
+for current type of file system enter <code>ef00</code><br>
+you can use <code>p</code> to print the partition table</p>
+<p>optional Swap</p>
+<p>create the second partition using <code>n</code><br>
+default the partition number<br>
+default the start of the partition<br>
+default the last sector<br>
+default the Linux 8300 filesystem<br>
+use <code>p</code> to check the table<br>
+use <code>w</code> to write</p>
+<p><code>lsbk</code></p>
+<p>to check the work</p>
+<h3 id="format-the-main-partition">Format the main partition</h3>
+<p><code>mkfs.btrfs /dev/nvme0n1p2</code></p>
+<p><code>mount /dev/nvme0n1p2 /mnt</code></p>
+<p>now we need to cd into the /mnt directory with<br>
+<code>cd /mnt</code></p>
+<p>create our subvolumes: using the name @ for timeshift</p>
+<p>root:<br>
+<code>btrfs subvolume create @</code><br>
+or shortened<br>
+<code>btrfs su cr /mnt/@</code></p>
+<p>home:<br>
+<code>btrfs subvolume create @home</code></p>
+<p>!NOTE: you can create your own subvolume names, these subvolumes will also be referenced later when taking snapshots with timeshift.</p>
+<p>go back to the original (/home/root) directory with<br>
+<code>cd -</code></p>
+<p>unmount our mnt partition:<br>
+<code>umount /mnt</code></p>
+<h3 id="mount-the-subvolumes">mount the subvolumes:</h3>
+<p>(the first time we mounted the partition so that we could create the btrfs subvolumes.  we then umount the partition so that we can mount the subvolumes.)</p>
+<blockquote>
+<p>btrfs mount options for nvme
+To optimize Btrfs for an NVMe drive, you should focus on options that minimize write amplification and leverage the high bandwidth of the PCIe interface.</p>
+</blockquote>
+<p><strong>Recommended Mount Options</strong></p>
+<p><strong>noatime</strong>: Disables access time updates, which significantly reduces metadata writes and prevents unnecessary Copy-on-Write (CoW) cycles.</p>
+<p><strong>compress-force=zstd:1</strong>: Using zstd:1 provides a good balance of compression and speed. High compression levels (like 3+) can bottleneck ultra-fast NVMe throughput by waiting on the CPU. Using compress-force is often preferred to bypass Btrfs&rsquo;s internal heuristics and let zstd handle incompressible data.</p>
+<p><strong>discard=async</strong>: This allows the filesystem to send TRIM commands to the NVMe in the background without blocking I/O operations. Note: It is automatically enabled on supported devices since kernel 6.2.</p>
+<p><strong>ssd</strong>: Explicitly tells Btrfs the device is solid-state. While usually auto-detected, including it ensures SSD-specific optimizations like spread-out block allocation are active.</p>
+<p><strong>space_cache=v2</strong>: A more efficient way to track free space on the drive, especially beneficial for larger volumes (over 1TB). It is the default for most modern distributions.</p>
+<p>Summary Table for /etc/fstab</p>
+<p><strong>What I used for options</strong></p>
+<p><strong>noatime</strong> Reduces disk writes; improves performance.</p>
+<p><strong>compress=zstd</strong>  Saves space with minimal CPU overhead; extends drive life.</p>
+<p><strong>discard=async</strong>  Efficiently handles TRIM for better long-term performance.</p>
+<p><strong>ssd</strong>  Optimizes block allocation for flash storage.</p>
+<p><strong>space_cache=v2</strong> Modern, faster free space tracking.</p>
+<h3 id="mount-main-subvolume">Mount main subvolume</h3>
+<p><code>mount -o noatime,ssd,compress=zstd,space_cache=v2,discard=async,subvol=@ /dev/nvme0n1p2 /mnt</code></p>
+<p>create home mounting point</p>
+<p><code>mkdir /mnt/home</code></p>
+<p>mount our subvolumes:</p>
+<p><code>mount -o noatime,ssd,compress=zstd,space_cache=v2,discard=async,subvol=@home /dev/nvme0n1p2 /mnt/home</code></p>
+<h2 id="efi-partition">efi partition:</h2>
+<p>format your efi partition:<br>
+<code>mkfs.fat -F32 /dev/nvme0n1p1</code></p>
+<p>create boot mounting point<br>
+<code>mkdir /mnt/boot</code></p>
+<p>mount our efi partition with<br>
+<code>mount /dev/nvme0n1p1 /mnt/boot</code></p>
+<p>install base packages:</p>
+<blockquote>
+<p>pacstrap -K is a crucial Arch Linux installation command that initializes a fresh, empty keyring in the new system&rsquo;s target directory, preventing issues from the host&rsquo;s potentially outdated or untrusted keys by forcing a new key generation, making it a recommended practice for a clean installation. It&rsquo;s used with the mount point and essential packages like base, linux, and linux-firmware, e.g., pacstrap -K /mnt base linux linux-firmware, to install core components for a new Arch system.</p>
+</blockquote>
+<p>Note I went with the lts kernel<br>
+<code>pacstrap -K /mnt base linux-lts linux-firmware</code></p>
+<p>generate the file system table (U option to include UUID):
+<code>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab </code></p>
+<p>(you can check this with cat /mnt/etc/fstab)</p>
+<p>change root into the new system:</p>
+<p><code>arch-chroot /mnt</code></p>
+<p>You are now working from within in your new arch system - i.e. not from the ISO - and you will now see that your prompt start with #. Great work so far!</p>
+<p>Step 3: Working Within Our New System
+install neovim to modify config files
+<code>pacman -S neovim</code></p>
+<p>check <code>sudo nvim/etc/fstab</code> and get rid of the Subvolid entries (not needed, and optional step)
+if swap partition can set the pri=10 (swap partition after defaults,)  low priority</p>
+<p>We are now working within our Arch system on our device, but it&rsquo;s important to note that we can&rsquo;t yet reboot our machine. Let&rsquo;s continue with a few steps that we need to repeat again (such as setting our root password, timezones, keymaps and language) given the previous settings were in the context of our ISO.</p>
+<p>set your local time and locale on your system:</p>
+<p><code>ln -sf /usr/share/zoneinfo/America/Phoenix /etc/localtime</code></p>
+<p>(this is in your system, not on the iso)
+sync hardware clock to system time</p>
+<p><code>hwclock --systohc</code></p>
+<h3 id="locale">locale</h3>
+<p>Substitute text: sed &rsquo;s/old/new/&rsquo; file.txt replaces the first occurrence of &ldquo;old&rdquo; with &ldquo;new&rdquo; in each line.
+<code>sed -i 's/#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen &amp;&amp; locale-gen</code>
+or
+neovim or whatever editor you want to use to set locale</p>
+<p><code>nvim /etc/locale.gen </code>
+uncomment your locale (en_US.UTF-8) , write and exit and then run
+<code>locale-gen</code></p>
+<p>then</p>
+<p><code>echo &quot;LANG=en_US.UTF-8&quot; &gt;&gt; /etc/locale.conf </code></p>
+<p>for locale</p>
+<p><code>echo &quot;KEYMAP=us&quot; &gt;&gt; /etc/vconsole.conf </code></p>
+<p>for keyboard (select yours as appropriate)</p>
+<p>change the hostname</p>
+<p><code>echo &quot;jim-t480&quot; &gt;&gt; /etc/hostname </code></p>
+<p>(feel free to customise to your case, the t480 in my case is for the Lenovo t480 I am installing Arch on).</p>
+<p>set hosts file
+<code>echo &quot;127.0.0.1 localhost&quot; &gt;&gt; /etc/hosts</code>
+<code>echo &quot;::1       localhost&quot; &gt;&gt; /etc/hosts</code>
+<code>echo &quot;127.0.1.1 jim-t480.localdomain jim-t480&quot; &gt;&gt; /etc/hosts</code></p>
+<p>set your root password:
+<code>passwd</code></p>
+<p>set up a new user
+(replace jimwith your preferred username):
+create</p>
+<p><code>useradd -m -g users -G wheel jim</code></p>
+<p>give your user a password with</p>
+<p><code>passwd jim</code></p>
+<p>(you will be prompted to enter a password);</p>
+<p>create a sudoers directory with</p>
+<p><code>mkdir /etc/sudoers.d</code></p>
+<p>set the sudoers direcotry permissions</p>
+<p><code>chmod 755 /etc/sudoers.d</code></p>
+<p>add your user to the sudoers group:</p>
+<p><code>echo &quot;jim ALL=(ALL) ALL&quot; &gt;&gt; /etc/sudoers.d/jim</code></p>
+<p>; and,</p>
+<p>set the permissions for your sudoers user file</p>
+<p><code>chmod 0440 /etc/sudoers.d/jim</code></p>
+<p>install sudo and reflector (reflector needs rsync)</p>
+<p><code>pacman -S sudo reflector rsync</code></p>
+<p>set mirrorlist</p>
+<p>Packages to be installed must be downloaded from mirror servers, which are defined in /etc/pacman.d/mirrorlist. The higher a mirror is placed in the list, the more priority it is given when downloading a package.</p>
+<p>On the live system, all HTTPS mirrors are enabled (i.e. uncommented). The topmost worldwide mirror should be fast enough for most people, but you may still want to inspect the file to see if it is satisfactory. If it is not, edit the file accordingly, and move the geographically closest mirrors to the top of the list, although other criteria should be taken into account. Alternatively, you can use reflector to create a mirrorlist file based on various criteria.</p>
+<p>This file will later be copied to the new system by pacstrap, so it is worth getting right.</p>
+<p>Reflector is a Python script which can retrieve the latest mirror list from the Arch Linux Mirror Status page, filter the most up-to-date mirrors, sort them by speed and overwrite the file /etc/pacman.d/mirrorlist.</p>
+<p><code>cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak</code></p>
+<p><code>reflector -c 'United States' -a 12 --sort rate --save /etc/pacman.d/mirrorlist </code></p>
+<p>Next, we will install all of the packages we need for our system. It&rsquo;s imperative to always know what you are doing, and what you are installing!</p>
+<p>!NOTE: you could of course install all of the following packages together, but I have broken them up so they are easier to reason about.</p>
+<p>install the main packages that our system will use:</p>
+<p>pacman -Syu <br>
+base-devel <br>
+linux-lts <br>
+linux-lts-headers <br>
+linux-firmware <br>
+btrfs-progs <br>
+grub <br>
+efibootmgr <br>
+mtools <br>
+iwd <br>
+networkmanager <br>
+network-manager-applet \</p>
+<ul>
+<li>networkmanager-openvpn <br>
+wpa_supplicant <br>
+dialog <br>
+dosfstools <br>
+openssh <br>
+git <br>
+iptables-nft <br>
+ipset <br>
+firewalld <br>
+acpi <br>
+acpid <br>
+tlp <br>
+grub-btrfs</li>
+</ul>
+<p>install the following based on the manufacturer of your CPU:</p>
+<p>intel: (microcode that can patch firmware)</p>
+<p><code>pacman -S intel-ucode</code></p>
+<p>amd: pacman -S amd-ucode</p>
+<p>install your Desktop Environment and Display Manager of choice:</p>
+<p><code>pacman -Syu cosmic-session</code></p>
+<ul>
+<li>S: Synchronizes packages</li>
+<li>y: Refreshes the database for packages</li>
+<li>u: Upgrade all installed packages to their newest version</li>
+</ul>
+<p>!NOTE: I am using COSMIC by System76, but you can just as easily install gnome, kde or whichever tiling window manager or graphical user environment that you would like at this stage.</p>
+<p>install other useful packages:</p>
+<p>pacman -S <br>
+man-db <br>
+man-pages <br>
+texinfo <br>
+cifs-utils <br>
+cups <br>
+hplip <br>
+system-config-printer <br>
+python-pyqt5 <br>
+foomatic-db <br>
+foomatic-db-engine <br>
+gutenprint <br>
+simple-scan <br>
+cups-pdf <br>
+cups-pk-helper <br>
+ghostscript <br>
+gsfonts <br>
+bash-completion <br>
+htop <br>
+git <br>
+bluez <br>
+bluez-utils <br>
+alsa-utils <br>
+pipewire <br>
+pipewire-pulse <br>
+pipewire-jack <br>
+sof-firmware <br>
+ttf-firacode-nerd <br>
+alacritty <br>
+firefox</p>
+<p>edit the mkinitcpio file for encrypt:</p>
+<p><code>nvim /etc/mkinitcpio.conf</code></p>
+<p>and search for HOOKS;
+add encrypt (before filesystems hook);
+add usbhid &amp; atkbd to the MODULES (enables external keyboard at device decryption prompt);
+add btrfs to the MODULES;
+example: MODULES=(btrfs atkbd usbhid)
+and,</p>
+<p>recreate the mkinitcpio</p>
+<p><code>mkinitcpio -p linux</code>
+for lts
+<code>mkinitcpio -p linux-lts</code></p>
+<p>setup grub for the bootloader so that the system can boot linux:</p>
+<p><code>grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</code></p>
+<p>NOTE: &ndash;disable-shim-lock disables GRUB&rsquo;s built in shim lock protocol support. This flag is optional, and should only be passed if you are using custom keys (not the Microsoft Signed shim mechanism).</p>
+<p><code>grub-mkconfig -o /boot/grub/grub.cfg</code></p>
+<p>run blkid and obtain the UUID for the main partition (TYPE=&ldquo;cypto_LUKS&rdquo;:  copy the UUID</p>
+<p><code>blkid</code>
+or <code>cat /etc/fstab</code></p>
+<p>UUID=&ldquo;2032ebd8-13e7-4a6d-9c8e-d9028151aef8&rdquo;</p>
+<p>edit the grub config</p>
+<p><code>nvim /etc/default/grub</code></p>
+<p>GRUB_CMDLINE_LINUX_DEFAULT=&ldquo;loglevel=3 quiet cryptdevice=UUID=d33844ad-af1b-45c7-9a5c-cf21138744b4:main root=/dev/mapper/main</p>
+<p>make the grub config with</p>
+<p><code>grub-mkconfig -o /boot/grub/grub.cfg</code></p>
+<p>enable services:
+Cosmic greeter
+<code>systemctl enable cosmic-greeter.servce</code></p>
+<p>network manager with</p>
+<p><code>systemctl enable NetworkManager</code></p>
+<p>bluetooth with</p>
+<p><code>systemctl enable bluetooth</code></p>
+<p>ssh with</p>
+<p><code>systemctl enable sshd</code></p>
+<p>ly display manager with (if not using Cosmic Greeter)</p>
+<p>systemctl enable ly.service</p>
+<p>firewall with</p>
+<p><code>systemctl enable firewalld</code></p>
+<p>reflector</p>
+<p><code>systemctl enable reflector.timer</code></p>
+<p><code>systemctl enable fstrim.timer</code></p>
+<p><code>systemctl enable acpid</code></p>
+<p><code>systemctl enable cups.service</code></p>
+<p><code>systemctl enable fstrim.timer</code></p>
+<p><code>systemctl enable tlp.service</code></p>
+<p>edit bluetooth</p>
+<p><code>vim /etc/bluetooth/main.conf</code></p>
+<p>find AutoEnable and set AutoEnable=true</p>
+<p>Now for the moment of truth. Make sure you have followed these steps above carefully, then reboot your system with the reboot command.</p>
+<p>Step 4: Tweaking our new Arch system</p>
+<p>When you boot up you will be presented with the grub bootloader menu, and then, once you have selected to boot into arch linux (or the timer has timed out and selected your default option) you will be prompted to enter your encryption password. Upon successful decryption, you will be presented with the ly greeter. Enter the password for the user you created earlier.</p>
+<p>use network manager to connect wifi</p>
+<p>nmcli device wifi list</p>
+<p>nmcli device wifi connect DogsNHogs</p>
+<p>ping archlinux.org -c 5</p>
+<p>install paru:</p>
+<p>sudo pacman -S &ndash;needed base-devel
+git clone <a href="https://aur.archlinux.org/paru.git">https://aur.archlinux.org/paru.git</a>
+cd paru
+makepkg -si</p>
+<h2 id="zram-generator">zram-generator</h2>
+<p>zram-generator is a systemd-related project hosted under its GitHub organization that makes use of its conventions and mechanisms.</p>
+<p>It provides <a href="mailto:systemd-zram-setup@zramN.service">systemd-zram-setup@zramN.service</a> units to automatically initialize zram devices without users needing to enable/start the template or its instances. See zram-generator(8).</p>
+<p>To use it, install zram-generator,
+<code>sudo pacman -Syu zram-generator</code>
+and create /etc/systemd/zram-generator.conf with the following:</p>
+<p><code>/etc/systemd/zram-generator.conf</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>[zram0]
+</span></span><span style="display:flex;"><span>zram-size = min(ram / 2, 16384)
+</span></span><span style="display:flex;"><span>compression-algorithm = zstd
+</span></span><span style="display:flex;"><span>swap-priority = 100
+</span></span><span style="display:flex;"><span>fs-type = swap
+</span></span></code></pre></div><p><code>systemctl daemon-reexec</code></p>
+<p><del>systemctl start /dev/zram0</del>
+<code>systemctl start systemd-zram-setup@zram0.service</code></p>
+<p>Then reboot.</p>
+<p><code>lsblk</code></p>
+<p>to see that the zram0 has been set up as swap</p>
+<h2 id="timeshift">TIMESHIFT</h2>
+<p>install timeshift:</p>
+<p><code>paru -S timeshift timeshift-autosnap</code>
+<code>sudo timeshift --list-devices</code>
+<code>sudo timeshift --create --comments &quot;[10MAY2025] start of time&quot; --tags D</code></p>
+<p><code>sudo EDITOR=nvim systemctl edit --full grub-btrfsd</code>
+!NOTE:
+rm : ExecStart=/usr/bin/grub-btrfsd &ndash;syslog /.snapshots
+<del>add: ExecStart=/usr/bin/grub-btrfsd &ndash;syslog -t</del>
+ExecStart=/usr/bin/grub-btrfsd &ndash;syslog &ndash;timeshift-auto</p>
+<p><code>sudo grub-mkconfig -o /boot/grub/grub.cfg</code></p>
+<h2 id="cosmic">COSMIC</h2>
+<p>some files did not install with cosmic-session
+added:
+<code>sudo pacman -S cosmic-text-editor</code>
+<code>sudo pacman -S cosmic-terminal</code>
+<code>sudo pacman -S cosmic-wallpaper</code>
+<code>sudo pacman -S cosmic-player</code></p>
+<p>for smb network shares in cosmic files
+<code>sudo pacman -S gvfs-smb</code></p>
+<p>Next: Optional Further Steps</p>
+<p>install power-profiles-daemon:</p>
+<p>!NOTE: you may also like to check out tlp, although for my use case tlp does not work with COSMIC&rsquo;s power applet (see next step).</p>
+<p><code>pacman -Syu power-profiles-daemon</code>
+<code>sudo systemctl enable --now power-profiles-daemon.service</code></p>
+<p>install auto-cpufreq:</p>
+<p>paru -S auto-cpufreq<br>
+sudo systemctl enable &ndash;now auto-cpufreq.service</p>
+<p>install brave-browser:
+<code>paru -S brave-browser</code></p>
+<h2 id="printers">Printers</h2>
+<p>cups should be loaded and can be found in the desktop under System, ManagePrinting
+will pull the cups page http://localhost:631</p>
+<p>Go to Administration and select Find New Printer
+I had to Add Printer for the HP_Blue
+socket://192.168.86.40:9100
+or
+ipp://192.168.84.40/ipp/print</p>
+<p>the main printer is
+socket://192.168.86.30:9100</p>
+<h3 id="pdf-printer">PDF printer</h3>
+<p>update the cups-pdf.conf
+<code>sudo nvim /etc/cups/cups-pdf.conf</code>
+uncoment the out and set to
+Out ${HOME}/PDF</p>
+<h2 id="t480-specific-issues-with-arch">T480 Specific issues with Arch</h2>
+<p>Thermal throttling
+install throttled
+<code>sudo pacman -S throttled</code>
+<code>sudo systemctl start throttled</code>
+<code>sudo systemctl enable throttled</code></p>
+<h2 id="fingerprint-reader">Fingerprint reader</h2>
+<p>The fingerprint sensor is not supported by libfprint.
+There is a project python-validity based on open-fprintd, see [10].
+Install python-validityAUR and enroll your fingerprint:</p>
+<p><code>$ fprintd-enroll</code>
+Refer to Fprint#Configuration for configuration.</p>
+<p>You may experience an issue where the fingerprint reader does not work after the laptop wakes up from suspension. To fix this, try enabling the open-fprintd-resume and open-fprintd-suspend systemd services [11][dead link 2025-08-15—HTTP 404]. If the issue is still present, create a unit file as follows, then enable it [12].</p>
+<p>/etc/systemd/system/fingerprint-restart.service
+[Unit]
+Description=Restart services to fix fingerprint integration
+After=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target</p>
+<p>[Service]
+Type=oneshot
+ExecStart=systemctl restart open-fprintd.service python3-validity.service</p>
+<p>[Install]
+WantedBy=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+If this solves the issue, you may disable open-fprintd-resume and open-fprintd-suspend again.</p>
+<h2 id="grub-theme">GRUB Theme</h2>
+<p>nstallation ( Manual )</p>
+<p>Download your favourite version of the theme from Pling
+<a href="https://www.pling.com/p/1603282/">https://www.pling.com/p/1603282/</a>
+Now extract your downloaded .zip file.</p>
+<p>Either manually extract it or use the command below.
+<code>unzip dark-matter-debian.zip</code></p>
+<p>Copy the theme directory.
+<code>sudo cp -r dark-matter /boot/grub/themes/</code></p>
+<p>Make changes to the GRUB config file.
+<code>sudo nano /etc/default/grub</code>
+Find the line GRUB_THEME= then change it to GRUB_THEME=&quot;/boot/grub/themes/dark-matter/theme.txt&rdquo;</p>
+<p>Then save the file.</p>
+<p>Finally, update the grub.
+<code>sudo grub-mkconfig -o /boot/grub/grub.cfg</code></p>
+<h2 id="nas-shares-on-fstab">NAS shares on fstab</h2>
+<p>set up /etc/fstab to load the nas shares on bootup</p>
+<h3 id="create-smbcredentials">create smbcredentials</h3>
+<p><code>nvim ~/.smbcredentials</code>
+within .smbcredentials
+username=nasusername
+password=naspassword</p>
+<p>secure the file
+<code>chmod 600 ~/.smbcredentials</code></p>
+<p>create mount points for the shares
+<code>sudo mkdir -p /media/nas/jim</code>
+<code>sudo mkdir -p /media/nas/viki</code>
+<code>sudo mkdir -p /media/nas/percifieldshare</code>
+<code>sudo mkdir -p /media/nas/media</code></p>
+<p>modify /etc/fstab
+address of nas share [tab] mount point [tab] location of credentials
+then options
+These /etc/fstab options manage how filesystems mount at boot, focusing on reliability and network availability.</p>
+<p>x-systemd.automount mounts on-demand, noauto prevents boot mounting,</p>
+<p>_netdev waits for network,</p>
+<p>nofail prevents boot failure if the device is missing.</p>
+<p>Combining noauto,x-systemd.automount is ideal for removable or network drives.</p>
+<p>Key Differences and Use Cases:
+x-systemd.automount: Mounts the filesystem only when it is first accessed, rather than at boot. It creates a systemd stub that intercepts access to the directory and mounts it on demand.
+noauto: Tells the system not to mount the device automatically at boot or with mount -a. The device is only mounted if explicitly requested later. Often used with x-systemd.automount.
+_netdev: Explicitly tells systemd that the mount depends on network access. It forces the mount to wait until the network is online.
+nofail: Allows the system to continue booting even if the mount fails (e.g., a disconnected USB drive). Without this, missing devices can stop the boot process.</p>
+<p>Common Combinations:
+noauto,x-systemd.automount: Excellent for remote or slow drives; mounts only when you click on the folder.
+_netdev,nofail: Used for network drives that might not be available at boot, preventing a 90-second hang during boot.
+x-systemd.device-timeout=10s,nofail: Best for external USB drives, reducing the wait time if the device is unplugged.</p>
+<p>iocharset=utf8 sets the encoding (default is iso8859-1 which is 256 characters)
+x-systemd.automount =</p>
+<h1 id="nas-19216886177jim">nas 192.168.86.177/jim</h1>
+<p>//192.168.86.177/jim    /media/nas/jim  cifs    credentials=/home/jim/.smbcredentials,iocharset=utf8,x-systemd.automount,_netdev,nofail</p>
+<h2 id="add-viki-user">add Viki user</h2>
+<p>sudo useradd -m -G wheel viki
+sudo passwd viki
+Mysweetdogs</p>
+<h2 id="security">Security</h2>
+<p>The following steps are the foundation of a secure Arch system. There are additional steps that you may of course take to harden your system further, and so you should consider this as a starting point.</p>
+<p>Secure Boot</p>
+<p>Step 1: Boot into your system BIOS, and:</p>
+<p>Clear Vendor Keys (if you are not dual booting);</p>
+<p>Disable Secure Boot; and,</p>
+<p>Ensure that Setup Mode is enabled.
+Step 2: Configure your system for Secure Boot</p>
+<p>Install sbctl</p>
+<p>sudo pacman -Syu sbctl</p>
+<p>Generate Keys</p>
+<p>sudo sbctl create-keys</p>
+<p>Enroll your keys</p>
+<p>sudo sbctl enroll-keys</p>
+<p>NOTE: this is the compressed kernel that your bootloader will load at boot. If you are using other kernel versions (e.g. linux-zen, linux-lts) you will need to sign these too!</p>
+<p>create the grub image:</p>
+<p>Reinstall grub:</p>
+<p>sudo grub-install &ndash;target=x86_64-efi &ndash;efi-directory=/boot &ndash;bootloader-id=GRUB &ndash;disable-shim-lock &ndash;modules=&ldquo;tpm&rdquo; &ndash;recheck</p>
+<p>NOTE: &ndash;disable-shim-lock disables GRUB&rsquo;s built in shim lock protocol support. This flag is optional, and should only be passed if you are using custom keys (not the Microsoft Signed shim mechanism).</p>
+<p>make the grub config:</p>
+<p>sudo grub-mkconfig -o /boot/grub/grub.cfg</p>
+<p>sign the necessary binaries loaded at boot:</p>
+<p>sudo sbctl sign -s /boot/vmlinuz-linux
+sudo sbctl sign -s /boot/EFI/GRUB/grubx64.efi</p>
+<p>Step 3: REBOOT AND DISABLE SECURE BOOT TO ENSURE IT IS WORKING</p>
+<p>create a GRUB password:</p>
+<p>grub-mkpasswd-pbkdf2
+set superusers=&ldquo;admin&rdquo;
+password_pbkdf2 admin <!-- raw HTML omitted --></p>
+<p>Restrict access to grub files</p>
+<p>sudo chmod 600 /boot/grub/grub.cfg
+sudo chmod -R 700 /etc/grub.d</p>
+<p>prevent modifications to your grub file:</p>
+<p>chattr +i /boot/grub/grub.cfg</p>
+<p>update /etc/default/grub:</p>
+<p>set GRUB_DISABLE_RECOVERY=&ldquo;true&rdquo;; and,</p>
+<p>set GRUB_DISABLE_OS_PROBER=true.</p>
+<p>Make the grub config:</p>
+<p>grub-mkconfig -o /boot/grub/grub.cfg</p>
+<p>Reboot the machine and disable Secure Boot in the BIOS</p>
+<p>That&rsquo;s all folks!</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/arch/" rel="tag">Arch</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/linux/" rel="tag">Linux</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/posts/godaddy-hosting-to-vps/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Website from GoDaddy Hosting to Digital Ocean VPS</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<input class="widget-search__field" type="search" placeholder="Search…" value="" name="q" aria-label="Search…">
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://localhost:1313/">
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/git-notes/">Git / GitHub Notes</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/godaddy-hosting-to-vps/">Website from GoDaddy Hosting to Digital Ocean VPS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/arch-linux-on-t480/">Manual Install of Arch Linux on Lenovo T480</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/arch/" title="Arch">Arch</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/github/" title="Github">Github</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ubuntu-server/" title="Ubuntu Server">Ubuntu Server</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/website/" title="Website">Website</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2026 Tipnmog Blog.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

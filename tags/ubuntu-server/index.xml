@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu Server on Tipnmog Blog</title>
+    <link>http://localhost:1313/tags/ubuntu-server/</link>
+    <description>Recent content in Ubuntu Server on Tipnmog Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ubuntu-server/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Website from GoDaddy Hosting to Digital Ocean VPS</title>
+      <link>http://localhost:1313/posts/godaddy-hosting-to-vps/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/godaddy-hosting-to-vps/</guid>
+      <description>&lt;p&gt;This will be a documentation of moving a website from GoDaddy shared hosting to Digital Ocean droplet.  Any other cloud hosting service should work with variation in the server creation on the cloud system.  For example other services such as Linode etc.  Note that Digital Ocean calls their virtual machines droplets, other providers will have a different name.&lt;/p&gt;&#xA;&lt;p&gt;While documenting this process I moved the domain 09flhrc.com from GoDaddy shared hosting to a Digital Ocean Droplet.  The IP address assigned to the droplet is 143.110.204.149&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

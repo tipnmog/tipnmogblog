@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arch on Tipnmog Blog</title>
+    <link>http://localhost:1313/tags/arch/</link>
+    <description>Recent content in Arch on Tipnmog Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Manual Install of Arch Linux on Lenovo T480</title>
+      <link>http://localhost:1313/posts/arch-linux-on-t480/</link>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/arch-linux-on-t480/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Btrfs&lt;/strong&gt; (B-tree file system) is a modern, copy-on-write (CoW) filesystem for Linux designed for high scalability, fault tolerance, and easy administration. It supports advanced features like snapshots, data compression, and built-in RAID. It is widely used in Linux distributions (e.g., Fedora) and enterprise NAS systems for data integrity.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;zram&lt;/strong&gt;: Zram (formerly compcache) is a Linux kernel module that creates a compressed, RAM-based block device, acting as a faster alternative to traditional swap. By compressing data in memory (typically at a 3:1 ratio), it allows systems to store more data in RAM, significantly reducing disk I/O and enhancing responsiveness on low-memory devices.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
