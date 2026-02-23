@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Uncomplicated Fire Wall - Tipnmog Blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:url" content="https://example.org/posts/linux_ufw/">
+  <meta property="og:site_name" content="Tipnmog Blog">
+  <meta property="og:title" content="Uncomplicated Fire Wall">
+  <meta property="og:description" content="The Linux kernel includes the Netfilter subsystem, which is used to manipulate or decide the fate of network traffic headed into or through your server. All modern Linux firewall solutions use this system for packet filtering.
+The kernel’s packet filtering system would be of little use to administrators without a userspace interface to manage it. This is the purpose of the **iptables** utility: when a packet reaches your server, it will be handed off to the Netfilter subsystem for acceptance, manipulation, or rejection based on the rules supplied to it from the userspace (via iptables). Thus, iptables is all you need to manage your firewall, if you’re familiar with it, but many are available to simplify the task. We’ll take a look at the default frontend used in Ubuntu here.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-01T00:00:00+00:00">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="UbuntuServer">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Tipnmog Blog" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Tipnmog Blog</div>
+					<div class="logo__tagline">Collection of Notes</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Uncomplicated Fire Wall</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2026-02-01T00:00:00Z">February 01, 2026</time></div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>The Linux kernel includes the <strong>Netfilter</strong> subsystem, which is used to manipulate or decide the fate of network traffic headed into or through your server. All modern Linux firewall solutions use this system for packet filtering.</p>
+<p>The kernel’s packet filtering system would be of little use to administrators without a userspace interface to manage it. This is the purpose of the <code>**iptables**</code> utility: when a packet reaches your server, it will be handed off to the Netfilter subsystem for acceptance, manipulation, or rejection based on the rules supplied to it from the userspace (via <code>iptables</code>). Thus, <code>iptables</code> is all you need to manage your firewall, if you’re familiar with it, but many are available to simplify the task. We’ll take a look at the default frontend used in Ubuntu here.</p>
+<h2 id="ufw---uncomplicated-firewall">ufw - Uncomplicated Firewall</h2>
+<p>The default firewall configuration tool for Ubuntu is <code>ufw</code>. Developed to ease <code>iptables</code> firewall configuration, <code>ufw</code> provides a user-friendly way to create an IPv4 or IPv6 host-based firewall.</p>
+<p><code>ufw</code> by default is initially disabled. From the <a href="https://manpages.ubuntu.com/manpages/en/man8/ufw.8.html"><code>ufw</code> man page</a>:</p>
+<blockquote>
+<p>ufw is not intended to provide complete firewall functionality via its command interface, but instead provides an easy way to add or remove simple rules. It is currently mainly used for host-based firewalls.</p>
+</blockquote>
+<h3 id="enable-or-disable-ufw">Enable or disable ufw</h3>
+<p>To enable <code>ufw</code>, run the following command from a terminal prompt:</p>
+<p>sudo ufw enable</p>
+<p>To disable it, you can use the following command:</p>
+<p>sudo ufw disable</p>
+<h3 id="open-or-close-a-port">Open or close a port</h3>
+<p>To open a port (SSH in this case):</p>
+<p>sudo ufw allow <strong>22</strong></p>
+<p>Similarly, to close an opened port:</p>
+<p>sudo ufw deny <strong>22</strong></p>
+<h3 id="add-or-remove-a-rule">Add or remove a rule</h3>
+<p>Rules can also be added using a <strong>numbered</strong> format:</p>
+<p>sudo ufw insert <strong>1</strong> allow <strong>80</strong></p>
+<p>To view the numbered format:</p>
+<p>sudo ufw status numbered</p>
+<p>To remove a rule, use <code>delete</code> followed by the rule:</p>
+<p>sudo ufw delete deny <strong>22</strong></p>
+<h3 id="allow-access-from-specific-hosts">Allow access from specific hosts</h3>
+<p>It is possible to allow access from specific hosts or networks to a port. The following example allows SSH access from host <code>192.168.0.2</code> to any IP address on this host:</p>
+<p>sudo ufw allow proto tcp from <strong>192</strong>.168.0.2 to any port <strong>22</strong></p>
+<p>Replace <code>192.168.0.2</code> with <code>192.168.0.0/24</code> to allow SSH access from the entire subnet.</p>
+<h3 id="the--dry-runoption">The <code>--dry-run</code> option</h3>
+<p>Adding the <code>--dry-run</code> option to a <code>ufw</code> command will output the resulting rules, but not apply them. For example, the following is what would be applied if opening the HTTP port:</p>
+<p>sudo ufw &ndash;dry-run allow http</p>
+<pre><code>*filter
+:ufw-user-input - **[****0**:0**]**
+:ufw-user-output - **[****0**:0**]**
+:ufw-user-forward - **[****0**:0**]**
+:ufw-user-limit - **[****0**:0**]**
+:ufw-user-limit-accept - **[****0**:0**]**
+_### RULES ###_
+
+_### tuple ### allow tcp 80 0.0.0.0/0 any 0.0.0.0/0_
+-A ufw-user-input -p tcp --dport **80** -j ACCEPT
+
+_### END RULES ###_
+-A ufw-user-input -j RETURN
+-A ufw-user-output -j RETURN
+-A ufw-user-forward -j RETURN
+-A ufw-user-limit -m limit --limit **3**/minute -j LOG --log-prefix &quot;[UFW LIMIT]: &quot;
+-A ufw-user-limit -j REJECT
+-A ufw-user-limit-accept -j ACCEPT
+COMMIT
+Rules updated
+</code></pre>
+<h3 id="check-the-status">Check the status</h3>
+<p>To see the firewall status, enter:</p>
+<pre tabindex="0"><code class="language-text-x-trilium-auto" data-lang="text-x-trilium-auto">sudo ufw status
+</code></pre><pre tabindex="0"><code class="language-text-x-trilium-auto" data-lang="text-x-trilium-auto">sudo ufw show added
+</code></pre><p>And for more verbose status information use:</p>
+<p>sudo ufw status verbose</p>
+<p>Note</p>
+<p>If the port you want to open or close is defined in <code>/etc/services</code>, you can use the port name instead of the number. In the above examples, replace <code>22</code> with <code>ssh</code>.</p>
+<p>This is a quick introduction to using <code>ufw</code>. Please refer to the <a href="https://manpages.ubuntu.com/manpages/en/man8/ufw.8.html"><code>ufw</code> man page</a> for more information.</p>
+<h3 id="ufw-application-integration">ufw application integration</h3>
+<p>Applications that open ports can include a <code>ufw</code> profile, which details the ports needed for the application to function properly. The profiles are kept in <code>/etc/ufw/applications.d</code>, and can be edited if the default ports have been changed.</p>
+<p>To view which applications have installed a profile, run the following in a terminal:</p>
+<p>sudo ufw app list</p>
+<p>Similar to allowing traffic to a port, using an application profile is accomplished by entering:</p>
+<p>sudo ufw allow Samba</p>
+<p>An extended syntax is available as well:</p>
+<p>ufw allow from <strong>192</strong>.168.0.0/24 to any app Samba</p>
+<p>Replace <code>Samba</code> and <code>192.168.0.0/24</code> with the application profile you are using and the IP range for your network.</p>
+<p>Note</p>
+<p>There is no need to specify the <strong>protocol</strong> for the application, because that information is detailed in the profile. Also, note that the <code>app</code> name replaces the <code>port</code> number.</p>
+<p>To view details about which ports and protocols, and so on, are defined for an application, enter:</p>
+<p>sudo ufw app info Samba</p>
+<p>Not all applications that require opening a network port come with <code>ufw</code> profiles, but if you have profiled an application and want the file to be included with the package, please file a bug against the package in Launchpad.</p>
+<p>ubuntu-bug nameofpackage</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/linux/" rel="tag">Linux</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/ubuntuserver/" rel="tag">UbuntuServer</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/posts/ssh/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">SSH Notes</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/posts/arch-linux-on-t480/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Manual Install of Arch Linux on Lenovo T480</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<input class="widget-search__field" type="search" placeholder="Search…" value="" name="q" aria-label="Search…">
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://example.org/">
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/godaddy-hosting-to-vps/">Website from GoDaddy Hosting to Digital Ocean VPS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/git-notes/">Git / GitHub Notes</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/arch-linux-on-t480/">Manual Install of Arch Linux on Lenovo T480</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/linux_ufw/">Uncomplicated Fire Wall</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/ssh/">SSH Notes</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/arch_linux/" title="Arch_Linux">Arch_Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/github/" title="Github">Github</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/laptop/" title="Laptop">Laptop</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ssh/" title="Ssh">Ssh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ubuntuserver/" title="UbuntuServer">UbuntuServer</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/website/" title="Website">Website</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2026 Tipnmog Blog.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>
