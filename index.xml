@@ -16,6 +16,13 @@
       <description>&lt;p&gt;see git config&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config --list&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;initialize&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git init&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Check status and see what branch you are on&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git status&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Rename the branch using the move option (&lt;code&gt;-m&lt;/code&gt;):&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git branch -m &amp;lt;new-name&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;add files to staging&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git add .&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;you can also add just a file&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git add file.txt&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;push local commit to remote (Github)&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git remote -v&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git remote add origin https://github.com/tipnmog/tipnmogblog.git&#xA;git branch -M main&#xA;git push -u origin main&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Steps to Remove the Origin Remote&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Uncomplicated Fire Wall</title>
+      <link>https://example.org/posts/linux_ufw/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://example.org/posts/linux_ufw/</guid>
+      <description>&lt;p&gt;The Linux kernel includes the &lt;strong&gt;Netfilter&lt;/strong&gt; subsystem, which is used to manipulate or decide the fate of network traffic headed into or through your server. All modern Linux firewall solutions use this system for packet filtering.&lt;/p&gt;&#xA;&lt;p&gt;The kernel’s packet filtering system would be of little use to administrators without a userspace interface to manage it. This is the purpose of the &lt;code&gt;**iptables**&lt;/code&gt; utility: when a packet reaches your server, it will be handed off to the Netfilter subsystem for acceptance, manipulation, or rejection based on the rules supplied to it from the userspace (via &lt;code&gt;iptables&lt;/code&gt;). Thus, &lt;code&gt;iptables&lt;/code&gt; is all you need to manage your firewall, if you’re familiar with it, but many are available to simplify the task. We’ll take a look at the default frontend used in Ubuntu here.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Website from GoDaddy Hosting to Digital Ocean VPS</title>
       <link>https://example.org/posts/godaddy-hosting-to-vps/</link>
       <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
@@ -30,9 +37,9 @@
       <description>&lt;p&gt;&lt;strong&gt;Btrfs&lt;/strong&gt; (B-tree file system) is a modern, copy-on-write (CoW) filesystem for Linux designed for high scalability, fault tolerance, and easy administration. It supports advanced features like snapshots, data compression, and built-in RAID. It is widely used in Linux distributions (e.g., Fedora) and enterprise NAS systems for data integrity.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;zram&lt;/strong&gt;: Zram (formerly compcache) is a Linux kernel module that creates a compressed, RAM-based block device, acting as a faster alternative to traditional swap. By compressing data in memory (typically at a 3:1 ratio), it allows systems to store more data in RAM, significantly reducing disk I/O and enhancing responsiveness on low-memory devices.&lt;/p&gt;</description>
     </item>
     <item>
-      <title></title>
+      <title>SSH Notes</title>
       <link>https://example.org/posts/ssh/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://example.org/posts/ssh/</guid>
       <description>&lt;h2 id=&#34;generate-an-ssh-key&#34;&gt;Generate an SSH Key&lt;/h2&gt;&#xA;&lt;p&gt;With OpenSSH, an SSH key is created using ssh-keygen. In the simplest form, just run ssh-keygen and answer the questions. The following example illustates this.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-text-x-sh&#34; data-lang=&#34;text-x-sh&#34;&gt;# ssh-keygen &#xA;&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;&#xA;&lt;p&gt;Generating public/private rsa key pair. Enter file in which to save the key (/home/ylo/.ssh/id_rsa): mykey &lt;/p&gt;&#xA;&lt;p&gt;Enter passphrase (empty for no passphrase):  &lt;/p&gt;&#xA;&lt;p&gt;Enter same passphrase again:  &lt;/p&gt;&#xA;&lt;p&gt;Your identification has been saved in mykey. Your public key has been saved in mykey.pub. &lt;/p&gt;</description>
     </item>

@@ -6,8 +6,15 @@
     <description>Recent content in UbuntuServer on Tipnmog Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://example.org/tags/ubuntuserver/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Uncomplicated Fire Wall</title>
+      <link>https://example.org/posts/linux_ufw/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://example.org/posts/linux_ufw/</guid>
+      <description>&lt;p&gt;The Linux kernel includes the &lt;strong&gt;Netfilter&lt;/strong&gt; subsystem, which is used to manipulate or decide the fate of network traffic headed into or through your server. All modern Linux firewall solutions use this system for packet filtering.&lt;/p&gt;&#xA;&lt;p&gt;The kernel’s packet filtering system would be of little use to administrators without a userspace interface to manage it. This is the purpose of the &lt;code&gt;**iptables**&lt;/code&gt; utility: when a packet reaches your server, it will be handed off to the Netfilter subsystem for acceptance, manipulation, or rejection based on the rules supplied to it from the userspace (via &lt;code&gt;iptables&lt;/code&gt;). Thus, &lt;code&gt;iptables&lt;/code&gt; is all you need to manage your firewall, if you’re familiar with it, but many are available to simplify the task. We’ll take a look at the default frontend used in Ubuntu here.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Website from GoDaddy Hosting to Digital Ocean VPS</title>
       <link>https://example.org/posts/godaddy-hosting-to-vps/</link>

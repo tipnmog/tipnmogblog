@@ -11,6 +11,9 @@
     <loc>https://example.org/tags/github/</loc>
     <lastmod>2026-02-22T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://example.org/tags/linux/</loc>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://example.org/posts/</loc>
     <lastmod>2026-02-22T00:00:00+00:00</lastmod>
   </url><url>
@@ -21,7 +24,10 @@
     <lastmod>2026-02-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.org/tags/ubuntuserver/</loc>
-    <lastmod>2026-02-21T00:00:00+00:00</lastmod>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/posts/linux_ufw/</loc>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.org/tags/website/</loc>
     <lastmod>2026-02-21T00:00:00+00:00</lastmod>
@@ -35,13 +41,14 @@
     <loc>https://example.org/tags/laptop/</loc>
     <lastmod>2026-02-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/linux/</loc>
-    <lastmod>2026-02-04T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://example.org/posts/arch-linux-on-t480/</loc>
     <lastmod>2026-02-04T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://example.org/tags/ssh/</loc>
+    <lastmod>2026-01-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://example.org/posts/ssh/</loc>
+    <lastmod>2026-01-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.org/categories/</loc>
   </url>
