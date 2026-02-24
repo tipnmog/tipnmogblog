@@ -2,66 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Tipnmog Blog</title>
-    <link>https://example.org/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Tipnmog Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>UbuntuServer</title>
-      <link>https://example.org/tags/ubuntuserver/</link>
+      <link>http://localhost:1313/tags/ubuntuserver/</link>
       <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/ubuntuserver/</guid>
+      <guid>http://localhost:1313/tags/ubuntuserver/</guid>
       <description></description>
     </item>
     <item>
       <title>Website</title>
-      <link>https://example.org/tags/website/</link>
+      <link>http://localhost:1313/tags/website/</link>
       <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/website/</guid>
+      <guid>http://localhost:1313/tags/website/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>https://example.org/tags/git/</link>
+      <link>http://localhost:1313/tags/git/</link>
       <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/git/</guid>
+      <guid>http://localhost:1313/tags/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Github</title>
-      <link>https://example.org/tags/github/</link>
+      <link>http://localhost:1313/tags/github/</link>
       <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/github/</guid>
+      <guid>http://localhost:1313/tags/github/</guid>
       <description></description>
     </item>
     <item>
       <title>Arch_Linux</title>
-      <link>https://example.org/tags/arch_linux/</link>
+      <link>http://localhost:1313/tags/arch_linux/</link>
       <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/arch_linux/</guid>
+      <guid>http://localhost:1313/tags/arch_linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Laptop</title>
-      <link>https://example.org/tags/laptop/</link>
+      <link>http://localhost:1313/tags/laptop/</link>
       <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/laptop/</guid>
+      <guid>http://localhost:1313/tags/laptop/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>https://example.org/tags/linux/</link>
+      <link>http://localhost:1313/tags/linux/</link>
       <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/linux/</guid>
+      <guid>http://localhost:1313/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Ssh</title>
-      <link>https://example.org/tags/ssh/</link>
+      <link>http://localhost:1313/tags/ssh/</link>
       <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/ssh/</guid>
+      <guid>http://localhost:1313/tags/ssh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Group Rides</title>
+      <link>http://localhost:1313/tags/group-rides/</link>
+      <pubDate>Thu, 07 Mar 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/group-rides/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Motorcycle</title>
+      <link>http://localhost:1313/tags/motorcycle/</link>
+      <pubDate>Thu, 07 Mar 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/motorcycle/</guid>
       <description></description>
     </item>
   </channel>
