@@ -10,7 +10,7 @@
   <meta property="og:site_name" content="Tipnmog Blog">
   <meta property="og:title" content="Website from GoDaddy Hosting to Digital Ocean VPS">
   <meta property="og:description" content="This will be a documentation of moving a website from GoDaddy shared hosting to Digital Ocean droplet. Any other cloud hosting service should work with variation in the server creation on the cloud system. For example other services such as Linode etc. Note that Digital Ocean calls their virtual machines droplets, other providers will have a different name.
-While documenting this process I moved the domain 09flhrc.com from GoDaddy shared hosting to a Digital Ocean Droplet. The IP address assigned to the droplet is 143.110.204.149">
+While documenting this process I moved the domain 09flhrc.com from GoDaddy shared hosting to a Digital Ocean Droplet. For this documentation I will use this bogus IP address to represent the address assigned to the droplet: 123.456.789.012. Yes, I am aware of the irony that I am not documenting the actual IP address, then tell how to find it in a few paragraphs.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -60,7 +60,7 @@ While documenting this process I moved the domain 09flhrc.com from GoDaddy share
 		</header>
 		<div class="content post__content clearfix">
 			<p>This will be a documentation of moving a website from GoDaddy shared hosting to Digital Ocean droplet.  Any other cloud hosting service should work with variation in the server creation on the cloud system.  For example other services such as Linode etc.  Note that Digital Ocean calls their virtual machines droplets, other providers will have a different name.</p>
-<p>While documenting this process I moved the domain 09flhrc.com from GoDaddy shared hosting to a Digital Ocean Droplet.  The IP address assigned to the droplet is 143.110.204.149</p>
+<p>While documenting this process I moved the domain 09flhrc.com from GoDaddy shared hosting to a Digital Ocean Droplet.  For this documentation I will use this bogus IP address to represent the address assigned to the droplet: 123.456.789.012.  Yes, I am aware of the irony that I am not documenting the actual IP address, then tell how to find it in a few paragraphs.</p>
 <h2 id="digital-ocean">Digital Ocean</h2>
 <p>AI description:  DigitalOcean is a developer-friendly cloud infrastructure-as-a-service (IaaS) provider offering simple, scalable, and cost-effective virtual machines (Droplets), managed databases, and Kubernetes. Designed for startups and SMBs, it simplifies deployment with a user-friendly interface, 1-click apps, and transparent pricing starting at $4–$5/month.</p>
 <p>Key details about DigitalOcean include: Core Product (Droplets): Linux-based virtual machines that can be deployed in seconds to run applications.</p>
@@ -92,7 +92,7 @@ Target Audience: Software developers, startups, and small-to-medium businesses (
 <p>Now that we have an IP address we can check to see if they installed sshd while creating the server.  If not we can log into the Digital Ocean console to install ssh.</p>
 <p>Go to the terminal on your computer and ssh into the droplet:</p>
 <pre tabindex="0"><code>
-ssh root@143.110.204.149
+ssh root@123.456.789.012
 </code></pre><p>change server ip to the IP address of your server</p>
 <p>For me the ssh attempt worked so sshd was installed on my droplet.</p>
 <h3 id="set-up-dns">set up DNS</h3>
@@ -117,7 +117,7 @@ apt update &amp;&amp; apt upgrade -y
 reboot
 </code></pre><p>the connection should disconnect and reset.  Wait a minute or two and ssh back in (you should be at your local pc prompt and not the server prompt)</p>
 <pre tabindex="0"><code>
-ssh root@143.110.204.149
+ssh root@123.456.789.012
 </code></pre><p>most terminal emulators have a history so you should be able to hit the up arrow to get the ssh command that was entered earlier</p>
 <blockquote>
 <p>Yes, the kernel was updated during the upgrade.  The first time I logged into the server the motd (message of the day) showed:</p>
@@ -237,7 +237,7 @@ exit
 <pre tabindex="0"><code>
 ssh jim@09flhrc.com
 </code></pre><p>if unsuccessful then DNS may not have propagated, try</p>
-<pre tabindex="0"><code>ssh jim@143.110.204.149
+<pre tabindex="0"><code>ssh jim@123.456.789.012
 </code></pre><p>if successful exit</p>
 <pre tabindex="0"><code>
 exit
@@ -336,9 +336,9 @@ sudo nvim /etc/nginx/sites-available/rsgaugeworks.com
 git --version
 </code></pre><p>configure git</p>
 <pre tabindex="0"><code>
-git config --global user.name &#34;Jim Percifield&#34;
+git config --global user.name &#34;Jim&#34;
 
-git config --global user.email &#34;tipnmog@gmail.com&#34;
+git config --global user.email &#34;myemail@gmail.com&#34;
 </code></pre><p>make a directory where you will store your html files</p>
 <p>initialize the directory</p>
 <pre tabindex="0"><code>
