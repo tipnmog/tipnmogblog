@@ -268,26 +268,29 @@ ssh-copy-id -i 09flhrc.pub jim@09flhrc.com
 <p>now try to log in to the droplet using the ssh key. It should not ask for a password since you are authenticating via ssh key</p>
 <pre tabindex="0"><code>
 ssh -i ./09flhrc jim@09flhrc.com
-</code></pre><p>modify the sshd_config to no allow passwords</p>
+</code></pre><h3 id="ssh_config">ssh_config</h3>
+<p>Configure the SSH daemon configuration file for added security using ssh.</p>
+<p>modify the sshd_config to no allow passwords</p>
 <pre tabindex="0"><code>
 sudo nvim /etc/ssh/ssh_config
 </code></pre><blockquote>
 <p>we have to use sudo to gain elevated privileges.  if not using neovim editor change nvim to editor of choice i.e. nano</p>
 </blockquote>
+<blockquote>
+<p>The configuration file will have some common options.  Many will be commented out with a # at the beginning of the line.  You will need to set the option you want for the parameter and remove the # for it to take affect&gt;</p>
+</blockquote>
 <p>find PermitRootLogin change to PermitRootLogin no</p>
 <p>find #PasswordAuthentication yes and change to</p>
-<p>PasswordAuthentication no</p>
-<p>PermitEmptyPasswords no</p>
-<blockquote>
-<p>note that the # was removed</p>
-</blockquote>
-<p>UsePAM no</p>
-<p>X11Forwarding no</p>
-<p>at the bottom of the file add</p>
-<pre tabindex="0"><code>
-AuthenticationMethods publickey
-
-AllowUsers jim randy
+<pre tabindex="0"><code>PasswordAuthentication no
+</code></pre><p>ensure that SSH key-based authentication remains available after disabling password logins.</p>
+<pre tabindex="0"><code>PubkeyAuthentication yes
+</code></pre><pre tabindex="0"><code>PermitEmptyPasswords no
+</code></pre><p>Limit the number of authentication attempts reduces the effectiveness of repeated login attempts. Reducing the login grace period limits how long unauthenticated connections can remain open.</p>
+<pre tabindex="0"><code>MaxAuthTries 3
+LoginGraceTime 30
+</code></pre><p>AuthenticationMethods publickey</p>
+<p>Specify the users who can log in</p>
+<pre tabindex="0"><code>AllowUsers jim randy
 </code></pre><p>restart ssh to read the config file</p>
 <pre tabindex="0"><code>
 sudo systemctl restart ssh
