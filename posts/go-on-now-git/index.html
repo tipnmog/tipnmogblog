@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Go on Now Git! - Tipnmog Blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:url" content="http://localhost:1313/posts/go-on-now-git/">
+  <meta property="og:site_name" content="Tipnmog Blog">
+  <meta property="og:title" content="Go on Now Git!">
+  <meta property="og:description" content="For years I have been trying to force myself to learn and use Git. Maybe the “force” myself is what has prevented me from being successful with the tool. I want to learn Git because the concept intrigues me. In my mind this is a very valid concept to maintain versions of the work I am doing on my local device and in a remote location.
+Obviously I have been going about this wrong. I have chosen a direction that clearly does not work for me. So far, every attempt I have made to use and be proficient has not been the correct path for me. In the past I would start a programming project or related project and think, “I need to use Git to maintain versions and to learn the tool while working this project”.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-24T00:00:00+00:00">
+    <meta property="article:tag" content="Git">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Tipnmog Blog" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Tipnmog Blog</div>
+					<div class="logo__tagline">Collection of Notes</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Go on Now Git!</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2026-02-24T00:00:00Z">February 24, 2026</time></div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>For years I have been trying to force myself to learn and use Git.  Maybe the &ldquo;force&rdquo; myself is what has prevented me from being successful with the tool.  I want to learn Git because the concept intrigues me.  In my mind this is a very valid concept to maintain versions of the work I am doing on my local device and in a remote location.</p>
+<p>Obviously I have been going about this wrong.  I have chosen a direction that clearly does not work for me.  So far, every attempt I have made to use and be proficient has not been the correct path for me.  In the past I would start a programming project or related project and think, &ldquo;I need to use Git to maintain versions and to learn the tool while working this project&rdquo;.</p>
+<p>Here is what I think was wrong for me. I need to understand the fundamental concepts behind a tool like this (doesn&rsquo;t everyone?).  In the past, my project was my main focus and what I wanted to complete.  So I would do a quick scan over Git commands, maybe watch a couple of YouTube videos and get back to the project.  The local repository usually went fine, it was when I engage a remote like Git Hub that things would go south.   I would get those git errors, do a Google search for the solution and go down that rabbit hole.  Git was not my primary focus, the project was.  I would soon realize I was spending too much time fighting git errors and reading Stack Overflow.  In my mind I wanted to get the project done, focus on that.  Git out of the way Git!</p>
+<p>Now I am working on this blog.  It is basically something to put on the webserver I described in the post regarding moving a GoDaddy shared host to a Digital Ocean VPS.  I do not want to install an FTP server to put files on the server.  Pulling from GitHub seems like a good solution and worked during that move.  Now that I have the project complete, and Hugo working to convert the markdown files created with Obsidian to a static website, I can now focus on Git.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>Quick note on git flow for this blog.  Concepts on how it works in remaining sections</p>
+<h3 id="local-repository">Local Repository</h3>
+<p>Go to the hugo public directory to post the updated html on the remote</p>
+<ul>
+<li>check that you have the latest update from remote</li>
+<li>
+<pre tabindex="0"><code>git pull
+git status
+</code></pre></li>
+</ul>
+<p>modify the post files and update using hugo
+when complete</p>
+<pre tabindex="0"><code>git add.
+git commit -m &#34;description of modification&#34;
+</code></pre><p>then update remote</p>
+<pre tabindex="0"><code>git push
+</code></pre><h4 id="webserver-update">Webserver update</h4>
+<p>access the webserver via ssh</p>
+<pre tabindex="0"><code>ssh 09flhrc
+</code></pre><p>navigate to the blog directory</p>
+<pre tabindex="0"><code>cd /var/www/html/tipnmogblog
+</code></pre><p>pull the code from the remote</p>
+<pre tabindex="0"><code>sudo git pull
+</code></pre><h2 id="fundamental-concepts">Fundamental Concepts</h2>
+<p>After Git is installed.  The git config needs to be setup so that the user information can be stored so that when commits are made, the user who made those updates will be identified.</p>
+<pre tabindex="0"><code>git config --global user.name &#34;Your Name&#34;
+git config --global user.email &#34;your_email@example.com&#34;
+</code></pre><h3 id="local-repository-1">Local Repository</h3>
+<h4 id="create-local-repository">Create local repository</h4>
+<p>After creating the folder where you will be storing and working on your project you will initialize the git repository</p>
+<pre tabindex="0"><code>git init
+</code></pre><p>A hidden folder will be created to store the local repository where the git history and snapshots from commits will be stored.  Git can now start capturing changes to the files in the folder.</p>
+<p>The git history will be stored in branches which can be split off for things like revisions and features while the stable code can be kept in a master branch.  This is usually where things would start to go wrong for me because of the branches and for me not realizing what branch I was in.</p>
+<h4 id="branches">Branches</h4>
+<p>If you read documentation or review video for Git concepts dating back a few years ago, you will learn that the branch for the code history will be stored in the &ldquo;master&rdquo; branch.  If a revision is to be made, you would check out a new branch with your name selection to store the revision updates while the stable code  could would stay in master.  In 2020 many remote repositories like GitHub changed the name of that branch to &ldquo;main&rdquo; in order to be more inclusive.</p>
+<p>For whatever reason, when my device set up a local repository it would name the branch &ldquo;master&rdquo;  I would do the git thing and try to push to the GitHub remote repository which would default to &ldquo;main&rdquo; branch.</p>
+<p>To see what branch you are on you can use the status command</p>
+<pre tabindex="0"><code>git status
+</code></pre><p>branch name will be shown at the top of response</p>
+<h5 id="rename-branch">Rename Branch</h5>
+<p>To rename the branch i.e. master to main</p>
+<pre tabindex="0"><code>git branch -m &#34;main&#34;
+</code></pre><p>-m = move, -M = force move</p>
+<p>your can also update the local branch name default in git config</p>
+<h3 id="the-three-stages-of-a-git-repository">The Three Stages of a Git Repository</h3>
+<ul>
+<li><strong>Working Directory (or Working Tree)</strong>
+<ul>
+<li>This is the local directory on your computer where you create, edit, and delete files.</li>
+<li>Files here are in a &ldquo;modified&rdquo; or &ldquo;untracked&rdquo; state.</li>
+<li>Changes in this area are not yet being tracked for the next commit snapshot.</li>
+</ul>
+</li>
+<li><strong>Staging Area (or Index)</strong>
+<ul>
+<li>The staging area acts as a &ldquo;draft board&rdquo; or intermediate area where you gather specific changes you want to include in your next commit.</li>
+<li>You use the <code>git add</code> command to move files or specific changes from the working directory to the staging area. This allows you to selectively stage only certain modifications, even within a single file.</li>
+<li>Files in this area are in a &ldquo;staged&rdquo; state.</li>
+</ul>
+</li>
+<li><strong>Local Repository</strong>
+<ul>
+<li>This is where Git permanently stores the project&rsquo;s history as a series of snapshots (commits).</li>
+<li>When you use the <code>git commit</code> command, Git takes all the files currently in the staging area and saves that precise snapshot into the local repository.</li>
+<li>Files in this area are in a &ldquo;committed&rdquo; state. </li>
+</ul>
+</li>
+</ul>
+<h3 id="the-basic-git-workflow">The Basic Git Workflow</h3>
+<p>The typical process for managing changes in Git follows this cycle:</p>
+<ol>
+<li>Use <code>git init</code> to set up the repository in the working directory.</li>
+<li><strong>Modify</strong> files in your working directory.</li>
+<li>Use the <code>git add</code> command to move specific changes to the staging area.</li>
+<li>Use the <code>git commit</code> command to record the staged changes as a permanent snapshot in the local repository history.</li>
+<li>Optionally, use the <code>git push</code> command to upload the commits from your local repository to a remote repository like GitHub.</li>
+</ol>
+<p>Add
+add files to be tracked by git</p>
+<pre tabindex="0"><code>git add .
+</code></pre><p>will add all files in the working directory.</p>
+<pre tabindex="0"><code>git add file.name
+</code></pre><p>will add a single file by name to staging.</p>
+<p>Commit
+record staged changes to repository history.</p>
+<pre tabindex="0"><code>git commit -m &#34;description of revision&#34;
+</code></pre><h3 id="remote-repository">Remote Repository</h3>
+<p>A remote URL is Git&rsquo;s fancy way of saying &ldquo;the place where your code is stored.&rdquo; That URL could be your repository on GitHub, or another user&rsquo;s fork, or even on a completely different server.</p>
+<p>You can only push to two types of URL addresses:</p>
+<ul>
+<li>An HTTPS URL like <code>https://github.com/user/repo.git</code></li>
+<li>An SSH URL, like <code>git@github.com:user/repo.git</code></li>
+</ul>
+<p>Git associates a remote URL with a name, and your default remote is usually called <code>origin</code>.</p>
+<h4 id="creating-remote-repositories">Creating remote repositories</h4>
+<p>You can use the <code>git remote add</code> command to match a remote URL with a name. For example, you&rsquo;d type the following in the command line:</p>
+<pre tabindex="0"><code>git remote add origin &lt;REMOTE_URL&gt;
+</code></pre><p>This associates the name <code>origin</code> with the <code>REMOTE_URL</code>.</p>
+<p>You can use the command <code>git remote set-url</code> to  change a remote&rsquo;s URL</p>
+<h4 id="showing-your-remotes">Showing Your Remotes</h4>
+<p>To see which remote servers you have configured, you can run the <code>git remote</code> command. It lists the shortnames of each remote handle you’ve specified. If you’ve cloned your repository, you should at least see <code>origin</code> — that is the default name Git gives to the server you cloned from:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ git clone https://github.com/schacon/ticgit
+</span></span><span style="display:flex;"><span>Cloning into &#39;ticgit&#39;...
+</span></span><span style="display:flex;"><span>remote: Reusing existing pack: 1857, done.
+</span></span><span style="display:flex;"><span>remote: Total 1857 (delta 0), reused 0 (delta 0)
+</span></span><span style="display:flex;"><span>Receiving objects: 100% (1857/1857), 374.35 KiB | 268.00 KiB/s, done.
+</span></span><span style="display:flex;"><span>Resolving deltas: 100% (772/772), done.
+</span></span><span style="display:flex;"><span>Checking connectivity... done.
+</span></span><span style="display:flex;"><span>$ cd ticgit
+</span></span><span style="display:flex;"><span>$ git remote
+</span></span><span style="display:flex;"><span>origin
+</span></span></code></pre></div><p>You can also specify <code>-v</code>, which shows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ git remote -v
+</span></span><span style="display:flex;"><span>origin	https://github.com/schacon/ticgit (fetch)
+</span></span><span style="display:flex;"><span>origin	https://github.com/schacon/ticgit (push)
+</span></span></code></pre></div><p>If you have more than one remote, the command lists them all. For example, a repository with multiple remotes for working with several collaborators might look something like this.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ cd grit
+</span></span><span style="display:flex;"><span>$ git remote -v
+</span></span><span style="display:flex;"><span>bakkdoor  https://github.com/bakkdoor/grit (fetch)
+</span></span><span style="display:flex;"><span>bakkdoor  https://github.com/bakkdoor/grit (push)
+</span></span><span style="display:flex;"><span>cho45     https://github.com/cho45/grit (fetch)
+</span></span><span style="display:flex;"><span>cho45     https://github.com/cho45/grit (push)
+</span></span><span style="display:flex;"><span>defunkt   https://github.com/defunkt/grit (fetch)
+</span></span><span style="display:flex;"><span>defunkt   https://github.com/defunkt/grit (push)
+</span></span><span style="display:flex;"><span>koke      git://github.com/koke/grit.git (fetch)
+</span></span><span style="display:flex;"><span>koke      git://github.com/koke/grit.git (push)
+</span></span><span style="display:flex;"><span>origin    git@github.com:mojombo/grit.git (fetch)
+</span></span><span style="display:flex;"><span>origin    git@github.com:mojombo/grit.git (push)
+</span></span></code></pre></div><p>This means we can pull contributions from any of these users pretty easily. We may additionally have permission to push to one or more of these, though we can’t tell that here.</p>
+<h4 id="adding-remote-repositories">Adding Remote Repositories</h4>
+<p>We’ve mentioned and given some demonstrations of how the <code>git clone</code> command implicitly adds the <code>origin</code> remote for you. Here’s how to add a new remote explicitly. To add a new remote Git repository as a shortname you can reference easily, run <code>git remote add &lt;shortname&gt; &lt;url&gt;</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ git remote
+</span></span><span style="display:flex;"><span>origin
+</span></span><span style="display:flex;"><span>$ git remote add pb https://github.com/paulboone/ticgit
+</span></span><span style="display:flex;"><span>$ git remote -v
+</span></span><span style="display:flex;"><span>origin	https://github.com/schacon/ticgit (fetch)
+</span></span><span style="display:flex;"><span>origin	https://github.com/schacon/ticgit (push)
+</span></span><span style="display:flex;"><span>pb	https://github.com/paulboone/ticgit (fetch)
+</span></span><span style="display:flex;"><span>pb	https://github.com/paulboone/ticgit (push)
+</span></span></code></pre></div><p>Now you can use the string <code>pb</code> on the command line in lieu of the whole URL. For example, if you want to fetch all the information that Paul has but that you don’t yet have in your repository, you can run <code>git fetch pb</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ git fetch pb
+</span></span><span style="display:flex;"><span>remote: Counting objects: 43, done.
+</span></span><span style="display:flex;"><span>remote: Compressing objects: 100% (36/36), done.
+</span></span><span style="display:flex;"><span>remote: Total 43 (delta 10), reused 31 (delta 5)
+</span></span><span style="display:flex;"><span>Unpacking objects: 100% (43/43), done.
+</span></span><span style="display:flex;"><span>From https://github.com/paulboone/ticgit
+</span></span><span style="display:flex;"><span> * [new branch]      master     -&gt; pb/master
+</span></span><span style="display:flex;"><span> * [new branch]      ticgit     -&gt; pb/ticgit
+</span></span></code></pre></div><p>Paul’s <code>master</code> branch is now accessible locally as <code>pb/master</code> — you can merge it into one of your branches, or you can check out a local branch at that point if you want to inspect it.</p>
+<h4 id="fetching-and-pulling-from-your-remotes">Fetching and Pulling from Your Remotes</h4>
+<p>To get data from your remote projects, you can run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ git fetch &lt;remote&gt;
+</span></span></code></pre></div><p>The command goes out to that remote project and pulls down all the data from that remote project that you don’t have yet. After you do this, you should have references to all the branches from that remote, which you can merge in or inspect at any time.</p>
+<p>If you clone a repository, the command automatically adds that remote repository under the name “origin”. So, <code>git fetch origin</code> fetches any new work that has been pushed to that server since you cloned (or last fetched from) it. It’s important to note that the <code>git fetch</code> command only downloads the data to your local repository — it doesn’t automatically merge it with any of your work or modify what you’re currently working on. You have to merge it manually into your work when you’re ready.</p>
+<p>If your current branch is set up to track a remote branch, you can use the <code>git pull</code> command to automatically fetch and then merge that remote branch into your current branch. This may be an easier or more comfortable workflow for you; and by default, the <code>git clone</code> command automatically sets up your local <code>master</code> branch to track the remote <code>master</code> branch (or whatever the default branch is called) on the server you cloned from. Running <code>git pull</code> generally fetches data from the server you originally cloned from and automatically tries to merge it into the code you’re currently working on.</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Note</td>
+          <td>From git version 2.27 onward, <code>git pull</code> will give a warning if the <code>pull.rebase</code> variable is not set. Git will keep warning you until you set the variable.<!-- raw HTML omitted --><!-- raw HTML omitted -->If you want the default behavior of git (fast-forward if possible, else create a merge commit): <code>git config --global pull.rebase &quot;false&quot;</code><!-- raw HTML omitted --><!-- raw HTML omitted -->If you want to rebase when pulling: <code>git config --global pull.rebase &quot;true&quot;</code></td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="pushing-to-remotes">Pushing to Remotes</h4>
+<p>When you have your project at a point that you want to share, you have to push it upstream. The command for this is simple: <code>git push &lt;remote&gt; &lt;branch&gt;</code>. If you want to push your <code>master</code> branch to your <code>origin</code> server (again, cloning generally sets up both of those names for you automatically), then you can run this to push any commits you’ve done back up to the server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ git push origin master
+</span></span></code></pre></div><p>This command works only if you cloned from a server to which you have write access and if nobody has pushed in the meantime. If you and someone else clone at the same time and they push upstream and then you push upstream, your push will rightly be rejected. You’ll have to fetch their work first and incorporate it into yours before you’ll be allowed to push.</p>
+<h4 id="inspecting-a-remote">Inspecting a Remote</h4>
+<p>If you want to see more information about a particular remote, you can use the <code>git remote show &lt;remote&gt;</code> command. If you run this command with a particular shortname, such as <code>origin</code>, you get something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ git remote show origin
+</span></span><span style="display:flex;"><span>* remote origin
+</span></span><span style="display:flex;"><span>  Fetch URL: https://github.com/schacon/ticgit
+</span></span><span style="display:flex;"><span>  Push  URL: https://github.com/schacon/ticgit
+</span></span><span style="display:flex;"><span>  HEAD branch: master
+</span></span><span style="display:flex;"><span>  Remote branches:
+</span></span><span style="display:flex;"><span>    master                               tracked
+</span></span><span style="display:flex;"><span>    dev-branch                           tracked
+</span></span><span style="display:flex;"><span>  Local branch configured for &#39;git pull&#39;:
+</span></span><span style="display:flex;"><span>    master merges with remote master
+</span></span><span style="display:flex;"><span>  Local ref configured for &#39;git push&#39;:
+</span></span><span style="display:flex;"><span>    master pushes to master (up to date)
+</span></span></code></pre></div><p>It lists the URL for the remote repository as well as the tracking branch information. The command helpfully tells you that if you’re on the <code>master</code> branch and you run <code>git pull</code>, it will automatically merge the remote’s <code>master</code> branch into the local one after it has been fetched. It also lists all the remote references it has pulled down.</p>
+<p>That is a simple example you’re likely to encounter. When you’re using Git more heavily, however, you may see much more information from <code>git remote show</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ git remote show origin
+</span></span><span style="display:flex;"><span>* remote origin
+</span></span><span style="display:flex;"><span>  URL: https://github.com/my-org/complex-project
+</span></span><span style="display:flex;"><span>  Fetch URL: https://github.com/my-org/complex-project
+</span></span><span style="display:flex;"><span>  Push  URL: https://github.com/my-org/complex-project
+</span></span><span style="display:flex;"><span>  HEAD branch: master
+</span></span><span style="display:flex;"><span>  Remote branches:
+</span></span><span style="display:flex;"><span>    master                           tracked
+</span></span><span style="display:flex;"><span>    dev-branch                       tracked
+</span></span><span style="display:flex;"><span>    markdown-strip                   tracked
+</span></span><span style="display:flex;"><span>    issue-43                         new (next fetch will store in remotes/origin)
+</span></span><span style="display:flex;"><span>    issue-45                         new (next fetch will store in remotes/origin)
+</span></span><span style="display:flex;"><span>    refs/remotes/origin/issue-11     stale (use &#39;git remote prune&#39; to remove)
+</span></span><span style="display:flex;"><span>  Local branches configured for &#39;git pull&#39;:
+</span></span><span style="display:flex;"><span>    dev-branch merges with remote dev-branch
+</span></span><span style="display:flex;"><span>    master     merges with remote master
+</span></span><span style="display:flex;"><span>  Local refs configured for &#39;git push&#39;:
+</span></span><span style="display:flex;"><span>    dev-branch                     pushes to dev-branch                     (up to date)
+</span></span><span style="display:flex;"><span>    markdown-strip                 pushes to markdown-strip                 (up to date)
+</span></span><span style="display:flex;"><span>    master                         pushes to master                         (up to date)
+</span></span></code></pre></div><p>This command shows which branch is automatically pushed to when you run <code>git push</code> while on certain branches. It also shows you which remote branches on the server you don’t yet have, which remote branches you have that have been removed from the server, and multiple local branches that are able to merge automatically with their remote-tracking branch when you run <code>git pull</code>.</p>
+<h4 id="renaming-and-removing-remotes">Renaming and Removing Remotes</h4>
+<p>You can run <code>git remote rename</code> to change a remote’s shortname. For instance, if you want to rename <code>pb</code> to <code>paul</code>, you can do so with <code>git remote rename</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ git remote rename pb paul
+</span></span><span style="display:flex;"><span>$ git remote
+</span></span><span style="display:flex;"><span>origin
+</span></span><span style="display:flex;"><span>paul
+</span></span></code></pre></div><p>It’s worth mentioning that this changes all your remote-tracking branch names, too. What used to be referenced at <code>pb/master</code> is now at <code>paul/master</code>.</p>
+<p>If you want to remove a remote for some reason — you’ve moved the server or are no longer using a particular mirror, or perhaps a contributor isn’t contributing anymore — you can either use <code>git remote remove</code> or <code>git remote rm</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ git remote remove paul
+</span></span><span style="display:flex;"><span>$ git remote
+</span></span><span style="display:flex;"><span>origin
+</span></span></code></pre></div><p>Once you delete the reference to a remote this way, all remote-tracking branches and configuration settings associated with that remote are also deleted.</p>
+<h2 id="git-notes">Git Notes</h2>
+<p>see git config</p>
+<pre tabindex="0"><code>git config --list
+</code></pre><p>initialize</p>
+<pre tabindex="0"><code>git init
+</code></pre><p>Check status and see what branch you are on</p>
+<pre tabindex="0"><code>git status
+</code></pre><p>Rename the branch using the move option (<code>-m</code>):</p>
+<pre tabindex="0"><code>git branch -m &lt;new-name&gt;
+</code></pre><p>add files to staging</p>
+<pre tabindex="0"><code>git add .
+</code></pre><p>you can also add just a file</p>
+<pre tabindex="0"><code>git add file.txt
+</code></pre><p>push local commit to remote (Github)</p>
+<pre tabindex="0"><code>git remote -v
+</code></pre><pre tabindex="0"><code>git remote add origin https://github.com/tipnmog/tipnmogblog.git
+git branch -M main
+git push -u origin main
+</code></pre><p>Steps to Remove the Origin Remote</p>
+<ol>
+<li>
+<p><strong>Open your terminal or command prompt</strong> and navigate to your local Git repository&rsquo;s directory.</p>
+</li>
+<li>
+<p><strong>Verify the current remotes</strong> configured for your repository by running:</p>
+<p>bash</p>
+<pre tabindex="0"><code>git remote -v
+</code></pre><p>This command lists the names and URLs for the fetch and push operations of your remotes, e.g., <code>origin https://github.com (fetch)</code>.</p>
+</li>
+<li>
+<p><strong>Remove the <code>origin</code> remote</strong> by using one of the following commands:</p>
+<ul>
+<li>
+<p>bash</p>
+<pre tabindex="0"><code>git remote remove origin
+</code></pre></li>
+<li>
+<p>bash</p>
+<pre tabindex="0"><code>git remote rm origin
+</code></pre></li>
+</ul>
+<p>The <code>remove</code> form is generally preferred, but <code>rm</code> is a valid alias.</p>
+</li>
+<li>
+<p><strong>Verify the removal</strong> by running <code>git remote -v</code> again. The <code>origin</code> remote should no longer appear in the list. </p>
+</li>
+</ol>
+<p>After Removal</p>
+<ul>
+<li>
+<p>If you need to connect your local repository to a <strong>different remote URL</strong>, you can add a new remote using the <code>git remote add</code> command:</p>
+<p>bash</p>
+<pre tabindex="0"><code>git remote add origin [new_url]
+</code></pre></li>
+<li>
+<p>Alternatively, you can <strong>change the existing remote URL</strong> without removing it first by using <code>git remote set-url</code>:</p>
+<p>bash</p>
+<pre tabindex="0"><code>git remote set-url origin [new_url]
+</code></pre></li>
+<li>
+<p>To <strong>delete a branch on the remote server</strong> (not the remote connection itself), you would use a different command:</p>
+<p>bash</p>
+<pre tabindex="0"><code>git push origin --delete [branch_name]
+</code></pre><p>Note that this is different from removing the remote configuration for &ldquo;origin&rdquo;</p>
+</li>
+</ul>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/git/" rel="tag">git</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/posts/godaddy-hosting-to-vps/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Website from GoDaddy Hosting to Digital Ocean VPS</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<input class="widget-search__field" type="search" placeholder="Search…" value="" name="q" aria-label="Search…">
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://localhost:1313/">
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/go-on-now-git/">Go on Now Git!</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/godaddy-hosting-to-vps/">Website from GoDaddy Hosting to Digital Ocean VPS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/arch-linux-on-t480/">Manual Install of Arch Linux on Lenovo T480</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/linux_ufw/">Uncomplicated Fire Wall</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/ssh/">SSH Notes</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/arch_linux/" title="Arch_Linux">Arch_Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/laptop/" title="Laptop">Laptop</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/motorcycle/" title="Motorcycle">Motorcycle</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/randy-rides/" title="Randy Rides">Randy Rides</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ssh/" title="Ssh">Ssh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ubuntuserver/" title="UbuntuServer">UbuntuServer</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/website/" title="Website">Website</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2026 Tipnmog Blog.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

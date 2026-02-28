@@ -6,21 +6,21 @@
     <description>Recent content in Posts on Tipnmog Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go on Now Git!</title>
+      <link>http://localhost:1313/posts/go-on-now-git/</link>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/go-on-now-git/</guid>
+      <description>&lt;p&gt;For years I have been trying to force myself to learn and use Git.  Maybe the &amp;ldquo;force&amp;rdquo; myself is what has prevented me from being successful with the tool.  I want to learn Git because the concept intrigues me.  In my mind this is a very valid concept to maintain versions of the work I am doing on my local device and in a remote location.&lt;/p&gt;&#xA;&lt;p&gt;Obviously I have been going about this wrong.  I have chosen a direction that clearly does not work for me.  So far, every attempt I have made to use and be proficient has not been the correct path for me.  In the past I would start a programming project or related project and think, &amp;ldquo;I need to use Git to maintain versions and to learn the tool while working this project&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Website from GoDaddy Hosting to Digital Ocean VPS</title>
       <link>http://localhost:1313/posts/godaddy-hosting-to-vps/</link>
       <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/godaddy-hosting-to-vps/</guid>
       <description>&lt;p&gt;This will be a documentation of moving a website from GoDaddy shared hosting to Digital Ocean droplet.  Any other cloud hosting service should work with variation in the server creation on the cloud system.  For example other services such as Linode etc.  Note that Digital Ocean calls their virtual machines droplets, other providers will have a different name.&lt;/p&gt;&#xA;&lt;p&gt;While documenting this process I moved the domain 09flhrc.com from GoDaddy shared hosting to a Digital Ocean Droplet.  For this documentation I will use this bogus IP address to represent the address assigned to the droplet: 123.456.789.012.  Yes, I am aware of the irony that I am not documenting the actual IP address, then tell how to find it in a few paragraphs.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git / GitHub Notes</title>
-      <link>http://localhost:1313/posts/git-notes/</link>
-      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/git-notes/</guid>
-      <description>&lt;p&gt;see git config&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config --list&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;initialize&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git init&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Check status and see what branch you are on&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git status&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Rename the branch using the move option (&lt;code&gt;-m&lt;/code&gt;):&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git branch -m &amp;lt;new-name&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;add files to staging&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git add .&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;you can also add just a file&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git add file.txt&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;push local commit to remote (Github)&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git remote -v&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git remote add origin https://github.com/tipnmog/tipnmogblog.git&#xA;git branch -M main&#xA;git push -u origin main&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Steps to Remove the Origin Remote&lt;/p&gt;</description>
     </item>
     <item>
       <title>Manual Install of Arch Linux on Lenovo T480</title>
