@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Tipnmog Blog</title>
-    <link>https://example.org/tags/linux/</link>
+    <link>http://localhost:1313/tags/linux/</link>
     <description>Recent content in Linux on Tipnmog Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 04 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Manual Install of Arch Linux on Lenovo T480</title>
-      <link>https://example.org/posts/arch-linux-on-t480/</link>
+      <link>http://localhost:1313/posts/arch-linux-on-t480/</link>
       <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/posts/arch-linux-on-t480/</guid>
+      <guid>http://localhost:1313/posts/arch-linux-on-t480/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Btrfs&lt;/strong&gt; (B-tree file system) is a modern, copy-on-write (CoW) filesystem for Linux designed for high scalability, fault tolerance, and easy administration. It supports advanced features like snapshots, data compression, and built-in RAID. It is widely used in Linux distributions (e.g., Fedora) and enterprise NAS systems for data integrity.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;zram&lt;/strong&gt;: Zram (formerly compcache) is a Linux kernel module that creates a compressed, RAM-based block device, acting as a faster alternative to traditional swap. By compressing data in memory (typically at a 3:1 ratio), it allows systems to store more data in RAM, significantly reducing disk I/O and enhancing responsiveness on low-memory devices.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Uncomplicated Fire Wall</title>
-      <link>https://example.org/posts/linux_ufw/</link>
+      <link>http://localhost:1313/posts/linux_ufw/</link>
       <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://example.org/posts/linux_ufw/</guid>
+      <guid>http://localhost:1313/posts/linux_ufw/</guid>
       <description>&lt;p&gt;The Linux kernel includes the &lt;strong&gt;Netfilter&lt;/strong&gt; subsystem, which is used to manipulate or decide the fate of network traffic headed into or through your server. All modern Linux firewall solutions use this system for packet filtering.&lt;/p&gt;&#xA;&lt;p&gt;The kernel’s packet filtering system would be of little use to administrators without a userspace interface to manage it. This is the purpose of the &lt;code&gt;**iptables**&lt;/code&gt; utility: when a packet reaches your server, it will be handed off to the Netfilter subsystem for acceptance, manipulation, or rejection based on the rules supplied to it from the userspace (via &lt;code&gt;iptables&lt;/code&gt;). Thus, &lt;code&gt;iptables&lt;/code&gt; is all you need to manage your firewall, if you’re familiar with it, but many are available to simplify the task. We’ll take a look at the default frontend used in Ubuntu here.&lt;/p&gt;</description>
     </item>
   </channel>
